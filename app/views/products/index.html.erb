@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<style type="text/css">
+  .title {
+    font-size: 24pt;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+ .price{
+   font-weight: 400;
+   font-size: 14pt;
+   text-align:right;
+ }
+
+</style>
+<%# ***************Items Grid form *****************
+    From 7 Creating Books(Products) YouTube video
+    - Due to it being the products index,
+    - This should be a loop to display all products
+    - in rows of 3
+    ************************************************ %>
+<div id="products.index">
+  <% @products.each_slice(3) do |product| %>
+    <div class="row">
+      <% product.each do |product| %>
+        <div class="col-md-3 col-sm-3">
+          <div class="title"><%= link_to product.title, product %></div>
+          <div class="image"><%= link_to image_tag(product.image_url, alt: product.title, height: 150, width: 225), product %></div>
+          <div class="price"><%= number_to_currency product.price %></div>
+          <div class="select-button"><%= link_to 'Select', product_path(product), class:'btn btn-primary' %></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%# ***************Items List Div *****************
+    From Shop on Rails YouTube video
+    - Listed nicely in a table and rows
+    - This should be a loop to display all products
+    - One item takes up a horizontal space
+    ********************************************* %>
+<table>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <!-- -->
+        <td><%= link_to image_tag(product.image_url, alt: product.title, height: 150, width: 225), product %></td>
+        <td>
+          <div class="title"><%= link_to product.title, product %></div>
+          <div class="description"><%= product.description %></div>
+          <div class="link"><%= link_to 'Show', product %> | <%= link_to 'Edit', edit_product_path(product) %> | <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <div class="price"><%= number_to_currency product.price %></div>
+          <%= button_to "Add to Cart", :controller => :cart, :action => :add, :id => product %>
+        </td>
+      </tr>
+      <tr><td colspan="2">
+        <hr/></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

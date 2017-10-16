@@ -1,0 +1,16 @@
+<%# CATERGORIES SHOW PAGE - shows the categories and SHOULD be the HOMEPAGE %>
+<h2><%= @category.name %></h2>
+<div id="books.index">
+  <% @products.each_slice(3) do |product| %>
+    <div class="row">
+      <% product.each do |product| %>
+        <div class="col-md-3 col-sm-3">
+          <div class="title"><%= link_to product.title, product %></div>
+          <%= link_to image_tag(product.image_url, alt: product.title, height: 150, width: 225), product %>
+          <div class="price"><%= number_to_currency product.price %></div>
+          <%= link_to 'Select', product_path(product), class:'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
