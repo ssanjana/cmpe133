@@ -17,6 +17,8 @@
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
      </button>
+     <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 
      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
        <ul class="navbar-nav mr-auto">
@@ -40,8 +42,19 @@
        </ul>
        <form class="form-inline my-2 my-lg-0">
          <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username">
-         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+         <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to 'Edit profile', edit_user_registration_path %></button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
+         <% else %>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Sign up", new_user_registration_path %></button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Login", new_user_session_path %></button>
+         <% end %>
+         <% 
+=begin %>
          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Cart", :controller => :cart, :action => :index %></button>
+         <% 
+=end %>
        </form>
      </div>
    </nav>
