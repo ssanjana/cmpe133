@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get 'categories/show'
 
+  get 'devise/cart/index' => 'cart#index'
+
   root 'categories#index'
   resources :products
   resources :categories
