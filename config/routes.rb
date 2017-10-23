@@ -1,9 +1,12 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do  # |map| was added for cart functionality
   get 'cart/index'
 
   get 'cart/add'
 
   get 'cart/edit'
+  # map.resources :cart
+  # map.connect ":controller/:action/:id"
+  #instructs rails ro route correctly
 
   get 'categories/new'
 

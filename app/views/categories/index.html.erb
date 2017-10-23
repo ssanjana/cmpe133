@@ -1,70 +1,36 @@
-<!-- This is the homepage and should be where we can find aisle too -->
+<!-- This is the homepage and should be where we can find aisles too -->
+
+<div class="navigation-bar-container">
+  <ul>
+    <li class="one navigation-bar-item"><a-nav href="#">Aisle</a-nav></li><!--
+ --><li class="two navigation-bar-item"><a-nav href="#">History</a-nav></li><!--
+ --><li class="three navigation-bar-item"><a-nav href="#">Saving</a-nav></li>
+    <hr />
+  </ul>
+</div>
+
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<h1>Aisles</h1>
-<p>Shop your heart out!</p>
+
 
 <div id="categories.index">
   <% @categories.each_slice(3) do |category| %>
   <div class="row">
+
+    
     <% category.each do |category| %>
-    <div class="col-md-3 col-sm-3">
-      <div class="name"><%= link_to category.name, category %></div>
+    <div class="card-container">
+    <div class="shadowed-card">
+
       <%# MAKE SURE ALL CATEGORIES HAVE A PICTURE OR ELSE THIS WILL FAIL %>
-      <%= link_to image_tag(category.image_url, alt: category.name, height: 150, width: 225), category_path(category.id) %>
+      <%= link_to image_tag(category.image_url, alt: category.name, height: 200, width: 300), category_path(category.id) %>
+
+      <div class="card-info-container"><h4><b><%= link_to category.name, category %></b></h4></div>
+      </div>
       </div>
     <% end %>
+  
   </div>
   <% end %>
 </div>
 
-<!-- This is the STATICALLY PLACED SECTIONS of the categories that don't
-      link anywhere. Woops :/
 
-<div class="album text-muted">
-      <div class="container">
-
-        <div class="row">
-          <div class="card">
-
-            <%= image_tag("bread2.jpg", alt: "Bread", height: 150, width: 225) %>
-            <p class="card-text">Bread</p>
-          </div>
-          <div class="card">
-            <%= image_tag("milk-dairy.JPG", alt: "Milk & Dairy", height: 150, width: 225) %>
-            <p class="card-text">Dairy</p>
-          </div>
-          <div class="card">
-            <%= image_tag("vegetables.JPG", alt: "Vegetables", height: 150, width: 225) %>
-            <p class="card-text">Vegetables</p>
-          </div>
-
-          <div class="card">
-            <%= image_tag("meats.jpg", alt: "Meats", height: 150, width: 225) %>
-            <p class="card-text">Meats</p>
-          </div>
-          <div class="card">
-            <%= image_tag("snacks.JPG", alt: "Snacks", height: 150, width: 225)%>
-            <p class="card-text">Snacks</p>
-          </div>
-          <div class="card">
-            <%= image_tag("fruits.JPG", alt: "Fruits", height: 150, width: 225)%>
-            <p class="card-text">Fruits</p>
-          </div>
-
-          <div class="card">
-            <%= image_tag("condiments.JPG", alt: "Condiments", height: 150, width: 225) %>
-            <p class="card-text">Condiments</p>
-          </div>
-          <div class="card">
-            <%= image_tag("breakfast.JPG", alt: "Breakfast", height: 150, width: 225) %>
-            <p class="card-text">Breakfast</p>
-          </div>
-          <div class="card">
-            <%= image_tag("beverages.JPG", alt: "Beverages", height: 150, width: 225) %>
-            <p class="card-text">Beverages</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
--->
