@@ -8210,8 +8210,8 @@ a.text-dark:focus, a.text-dark:hover {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
-  color: #ffffff;
-  font: 500 180% 'Helvetica Neue', Helvetica, Arial;
+  color: white;
+  font: 500 150% 'Helvetica Neue', Helvetica, Arial;
   background: #2dcf4e;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
@@ -8254,7 +8254,11 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .navigation-bar-item {
-  font: 500 200% 'Helvetica Neue', Helvetica, Arial;
+  font: 500 180% 'Helvetica Neue', Helvetica, Arial;
+}
+
+.healthway {
+  font: 500 300% 'Helvetica Neue', Helvetica, Arial;
 }
 
 * {

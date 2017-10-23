@@ -12,7 +12,11 @@
 
   <body>
     <nav class="navbar navbar-expand-md fixed-top">
-      <h1><%= link_to 'SAFERWAY', root_path %></h1>
+
+      <div class="navigation-bar-container healthway">
+        <%=image_tag('icon.jpg', alt: 'icon', height: 70, width: 70) %>
+        <%= link_to 'HEALTHWAY', root_path %>
+      </div>
 
 
      <!-- <a class="navbar-brand" href="#">Safeway</a> -->
@@ -47,15 +51,24 @@
 
 
        <form class="form-inline my-2 my-lg-0">
-         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Username">
+         <input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Username">
+
+         
+        <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
+        
+
          <% if user_signed_in? %>
           Logged in as |  <strong><%= current_user.email %></strong>.
           <button class="button" type="submit"><%= link_to 'Edit profile', edit_user_registration_path %></button>
           <button class="button" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
          <% else %>
           <button class="button" type="submit"><%= link_to "Sign up", new_user_registration_path %></button>
+
+          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
           <button class="button" type="submit"><%= link_to "Login", new_user_session_path %></button>
          <% end %>
+
+         <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
          <button class="button" type="submit"><%= link_to "Cart", cart_path %></button>
        </form>
      </div>

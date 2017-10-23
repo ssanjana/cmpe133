@@ -1,6 +1,11 @@
 <!-- This is the homepage and should be where we can find aisles too -->
 
 <div class="navigation-bar-container">
+  <%=image_tag('white.jpg', alt: 'white', height: 40, width: 70) %>
+</div>
+
+
+<div class="navigation-bar-container">
   <ul>
     <li class="one navigation-bar-item"><a-nav href="#">Aisle</a-nav></li><!--
  --><li class="two navigation-bar-item"><a-nav href="#">History</a-nav></li><!--
@@ -16,6 +21,9 @@
   <% @categories.each_slice(3) do |category| %>
   <div class="row">
 
+    <div class="card-info-container">
+      <%=image_tag('white.jpg', alt: 'white', height: 37, width: 42) %>
+    </div>
     
     <% category.each do |category| %>
     <div class="card-container">
