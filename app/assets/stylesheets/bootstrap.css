@@ -3658,8 +3658,29 @@ tbody.collapse.show {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 0px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+}
+
+.shadowed-card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+
+  border-radius: 20px;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1);
+}
+
+.shadowed-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .card-body {
@@ -8183,3 +8204,93 @@ a.text-dark:focus, a.text-dark:hover {
   visibility: hidden !important;
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+.button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  font: 500 180% 'Helvetica Neue', Helvetica, Arial;
+  background: #2dcf4e;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #24bd47;
+  text-decoration: none;
+}
+
+.product-card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.product-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.info-container {
+    padding: 2px 16px;
+}
+
+.card-container {
+    padding: 16px 30px;
+}
+
+.card-info-container {
+    padding: 4px 16px;
+    font: 500 200% 'Helvetica Neue', Helvetica, Arial;
+
+}
+
+.navigation-bar-container {
+  width: 50%;
+  margin: 5 auto;
+}
+
+.navigation-bar-item {
+  font: 500 200% 'Helvetica Neue', Helvetica, Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a-nav {
+  display: inline-block;
+  width: 25%;
+  padding: .75rem 0;
+  margin: 0;
+  text-decoration: none;
+  color: #333;
+}
+
+hr {
+  height: .45rem;
+  width: 25%;
+  margin: 0;
+  background: #2dcf4e;
+  border: none;
+  transition: .3s ease-in-out;
+}
+
+
+ul li {
+  display: inline;
+  text-align: center;
+}
+
+.two:hover ~ hr {
+  margin-left: 25%;
+}
+
+.three:hover ~ hr {
+  margin-left: 50%;
+}
+
+
