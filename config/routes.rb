@@ -20,11 +20,13 @@ Rails.application.routes.draw do
 
   get 'categories/show'
 
-  get 'devise/cart/index' => 'cart#index'
-
+  match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
+  
   root 'categories#index'
+
   resources :products
   resources :categories
   resources :cart
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

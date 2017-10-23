@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery :except => :receive_guest
 
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   # creating one as needed
   def guest_user(with_retry = true)
     # Cache the value the first time it's gotten.
-    @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)
+    @cached_guest_user ||= User.find(session2[:guest_user_id] ||= create_guest_user.id)
 
   rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
      session[:guest_user_id] = nil
