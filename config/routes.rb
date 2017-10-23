@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 Rails.application.routes.draw do
   devise_for :users
-=======
-Rails.application.routes.draw do  # |map| was added for cart functionality
->>>>>>> a097a541c4d780af91f6bfb2f137952e3d1edd36
   get 'cart/index'
 
   get 'cart/add'

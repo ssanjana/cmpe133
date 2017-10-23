@@ -9,23 +9,23 @@
 Category.delete_all
 
 Category.create(name:'Meats',
-  image_url: 'meats.jpg')
+  image_url: 'meats/meats.jpg')
 Category.create(name:'Beverages',
-  image_url: 'beverages.JPG')
+  image_url: 'beverages/beverages.JPG')
 Category.create(name:'Breads',
-  image_url: 'bread2.jpg')
+  image_url: 'bread/bread2.jpg')
 Category.create(name:'Breakfast',
-  image_url: 'breakfast.JPG')
+  image_url: 'breakfast/breakfast.JPG')
 Category.create(name:'Condiments',
-  image_url: 'condiments.JPG')
+  image_url: 'condiments/condiments.JPG')
 Category.create(name:'Fruits',
-  image_url: 'fruits.JPG')
+  image_url: 'fruits/fruits.JPG')
 Category.create(name:'Dairy',
-  image_url: 'milk-dairy.JPG')
+  image_url: 'milk-dairy/milk-dairy.JPG')
 Category.create(name:'snacks',
-  image_url: 'snacks.JPG')
+  image_url: 'snacks/snacks.JPG')
 Category.create(name:'Vegetables',
-  image_url: 'vegetables.JPG')
+  image_url: 'vegetables/vegetables.JPG')
 
 
 Product.delete_all
@@ -38,7 +38,7 @@ Product.create(title:'Cereal in a Bowl',
       clean to be eating out of. A little bit of cereal was carelessly spilled,
       but I think the table is clean too.
       },
-  image_url: 'breakfast.JPG',
+  image_url: 'breakfast/breakfast.JPG',
   price: 7.95)
 
 Product.create(title:'Mini French Bread',
@@ -48,7 +48,7 @@ Product.create(title:'Mini French Bread',
       This is like a good bread to use to make banh mi so go ahead, try it.
       Look up a video on YouTube to make a bomb-ass sandwich. We'll wait.
      },
-  image_url: 'bread2.jpg',
+  image_url: 'bread/bread2.jpg',
   price: 18.00)
 
 Product.create(title:'Misc Fruit',
@@ -57,5 +57,5 @@ Product.create(title:'Misc Fruit',
     %{
       fucking fruit yo
       },
-  image_url: 'fruits.JPG',
+  image_url: 'fruits/fruits.JPG',
   price: 9.95)

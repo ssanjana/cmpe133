@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-md fixed-top">
       <h1><%= link_to 'SAFERWAY', root_path %></h1>
 
-      
+
      <!-- <a class="navbar-brand" href="#">Safeway</a> -->
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
@@ -43,36 +43,28 @@
          </li> -->
        </ul>
 
-        
-        
+
+
 
        <form class="form-inline my-2 my-lg-0">
-<<<<<<< HEAD
          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Username">
          <% if user_signed_in? %>
           Logged in as |  <strong><%= current_user.email %></strong>.
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to 'Edit profile', edit_user_registration_path %></button>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
+          <button class="button" type="submit"><%= link_to 'Edit profile', edit_user_registration_path %></button>
+          <button class="button" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
          <% else %>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Sign up", new_user_registration_path %></button>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Login", new_user_session_path %></button>
+          <button class="button" type="submit"><%= link_to "Sign up", new_user_registration_path %></button>
+          <button class="button" type="submit"><%= link_to "Login", new_user_session_path %></button>
          <% end %>
-         
-         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Cart", cart_path %></button>
-         
-=======
-         <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username">
-         <button class="button" type="submit">Login</button>
          <button class="button" type="submit"><%= link_to "Cart", :controller => :cart, :action => :index %></button>
->>>>>>> a097a541c4d780af91f6bfb2f137952e3d1edd36
        </form>
      </div>
    </nav>
 
-   
+
 
    <!-- HEADER -->
-   
+
   <%= yield %>
 
   </body>
