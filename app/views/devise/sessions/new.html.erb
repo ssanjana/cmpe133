@@ -33,6 +33,10 @@
     <%= f.email_field :email, autofocus: true %>
   </div><br />
 
+  <div class="field">
+    <%=f.hidden_field :password, :value => '123456'%>
+  </div>
+
   <div class="actions">
     <%= f.submit "Continue as Guest" %>
   </div>
