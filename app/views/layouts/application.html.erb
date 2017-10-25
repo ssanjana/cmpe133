@@ -11,11 +11,18 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md fixed-top">
 
-      <div class="navigation-bar-container healthway">
-        <%=image_tag('icon.jpg', alt: 'icon', height: 70, width: 70) %>
-        <%= link_to 'HEALTHWAY', root_path %>
+    <nav class="navbar navbar-expand-md navigation-bar-backgroud fixed-top">
+
+      <div class="navigation-bar-container">
+        <div class="row">
+        <%=image_tag('white.jpg', alt: 'white', height: 10, width: 25) %>
+        <%= link_to 'HealthWay', root_path, :class => "healthway" %>
+      </div>
+      <div class="row slogen">
+        <%=image_tag('white.jpg', alt: 'white', height: 10, width: 27) %>
+        <h5>Let's put some slogen here.</h5>
+      </div>
       </div>
 
 
@@ -51,25 +58,36 @@
 
 
        <form class="form-inline my-2 my-lg-0">
-         <input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Username">
+
+          <!-- 
+         <input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Username">    -->
 
          
-        <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
+        <%=image_tag('white.jpg', alt: 'white', height: 40, width: 35) %>
         
+        <%= link_to "0", cart_path, :class => "shopping-cart"%>
+
+        <%=image_tag('white.jpg', alt: 'white', height: 40, width: 12) %>
 
          <% if user_signed_in? %>
           Logged in as |  <strong><%= current_user.email %></strong>.
-          <button class="button" type="submit"><%= link_to 'Edit profile', edit_user_registration_path %></button>
-          <button class="button" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
+          <button class="button" type="submit"><%= link_to 'Edit profile', edit_user_registration_path, :class => "small-button" %></button>
+          <button class="button" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "small-button"%></button>
          <% else %>
-          <button class="button" type="submit"><%= link_to "Sign up", new_user_registration_path %></button>
+          <button class="button" type="submit"><%= link_to "Sign up", new_user_registration_path, :class => "small-button" %></button>
 
           <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
-          <button class="button" type="submit"><%= link_to "Login", new_user_session_path %></button>
+          <button class="button" type="submit"><%= link_to "Login", new_user_session_path, :class => "small-button" %></button>
          <% end %>
 
+         <!-- 
          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
-         <button class="button" type="submit"><%= link_to "Cart", cart_path %></button>
+         <button class="button" type="submit"><%= link_to "Cart", cart_path, :class => "small-button"%></button>   
+
+         <%= link_to "0", cart_path, :class => "shopping-cart"%>   -->
+         
+         <%=image_tag('white.jpg', alt: 'white', height: 10, width: 15) %>
+
        </form>
      </div>
    </nav>

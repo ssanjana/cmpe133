@@ -1957,7 +1957,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   line-height: 1.25;
@@ -8210,14 +8210,35 @@ a.text-dark:focus, a.text-dark:hover {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
-  color: white;
+  color: #fff !important;
   font: 500 150% 'Helvetica Neue', Helvetica, Arial;
-  background: #2dcf4e;
-  padding: 10px 20px 10px 20px;
+  background-color: #2dcf4e;
+  padding: 8px 1px 8px 1px;
+  margin-top:8px;
   text-decoration: none;
+  border: none !important;
+  outline: none !important;
 }
 
 .button:hover {
+  background: #24bd47;
+  text-decoration: none;
+}
+
+.small-button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #fff !important;
+  font: 500 100% 'Helvetica Neue', Helvetica, Arial;
+  background-color: #2dcf4e;
+  padding: 8px 15px 8px 15px;
+  text-decoration: none;
+  border: none !important;
+  outline: none !important;
+}
+
+.small-button:hover {
   background: #24bd47;
   text-decoration: none;
 }
@@ -8257,8 +8278,43 @@ a.text-dark:focus, a.text-dark:hover {
   font: 500 180% 'Helvetica Neue', Helvetica, Arial;
 }
 
+.defaul-font{
+  font: 500 180% 'Helvetica Neue', Helvetica, Arial;
+}
+
+.navigation-bar-backgroud {
+  background-color: white !important;
+}
+
 .healthway {
   font: 500 300% 'Helvetica Neue', Helvetica, Arial;
+  color: #333 !important;
+  background-color: white !important;
+}
+
+.slogen {
+  font: 500 300% 'Helvetica Neue', Helvetica, Arial;
+  color: #bab8ba !important;
+  background-color: white !important;
+}
+
+.categories-bar-backgroud {
+  background-color: red !important;
+}
+
+.search-bar {
+    width: 130px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
 
 * {
@@ -8296,5 +8352,48 @@ ul li {
 .three:hover ~ hr {
   margin-left: 50%;
 }
+
+
+.shopping-cart{
+  display:block;
+  background: #c4c2c4;
+  width:33px;
+  height:30px;
+  text-align:center;
+  line-height:28px;
+  margin-top:14px;
+  margin-left:20px;
+  margin-right:8px;
+  position:relative;
+  color: #fff !important;
+  font: 500 185% 'Helvetica Neue', Helvetica, Arial;
+  color: white;
+  border-radius:5px;
+}
+.shopping-cart:hover {
+  background: #bab8ba;
+  text-decoration: none;
+}
+
+.shopping-cart:after{
+  display:block;
+  content:" ";
+  height:20px;
+  border:5px solid #c4c2c4;
+  position:absolute;
+  top:-10px;
+  left:6px;
+  right:6px;
+  border-radius:20px;
+  z-index:-1;
+}
+.shopping-cart:hover:after {
+  border:5px solid #bab8ba;
+  text-decoration: none;
+}
+
+
+
+
 
 
