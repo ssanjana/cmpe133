@@ -8281,6 +8281,9 @@ a.text-dark:focus, a.text-dark:hover {
 .defaul-font{
   font: 500 180% 'Helvetica Neue', Helvetica, Arial;
 }
+.small-defaul-font{
+  font: 500 110% 'Helvetica Neue', Helvetica, Arial;
+}
 
 .navigation-bar-backgroud {
   background-color: white !important;
@@ -8291,6 +8294,7 @@ a.text-dark:focus, a.text-dark:hover {
   color: #333 !important;
   background-color: white !important;
 }
+
 
 .slogen {
   font: 500 300% 'Helvetica Neue', Helvetica, Arial;
