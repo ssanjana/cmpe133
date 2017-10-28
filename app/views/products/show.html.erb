@@ -2,6 +2,11 @@
 <%# This is where we can see an individual product and it's info.
     NEXT to add here are suggestions in a div below.
  %>
+
+ <p>  
+  <%= image_tag @product.image_url %>
+</p>
+
 <p>
   <strong>Title:</strong>
   <%= @product.title %>
@@ -18,19 +23,25 @@
 </p>
 
 <p>
-  <strong>Recipes:</strong>
+  <strong>Price:</strong>
+  <%= number_to_currency @product.price %>
+</p>
+
+<p>
+  <strong>Interesting Recipe:</strong>
   <%= @product.recipes %>
 </p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
+  <strong>Recipe url:</strong>
+  <%= @product.recipe_url %>
+   <% if @product.recipe_url.present? %>
+  <%= image_tag @product.recipe_url %>
+  <% end %>
 </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency @product.price %>
-</p>
+
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

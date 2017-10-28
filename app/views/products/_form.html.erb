@@ -31,10 +31,6 @@
     <%= form.text_area :description, rows: 6, id: :product_description %>
   </div>
 
-  <div class="field">
-    <%= form.label :recipes %>
-    <%= form.text_area :recipes, rows: 6, id: :product_recipes %>
-  </div>
 
   <div class="field">
     <%= form.label :image_url %>
@@ -46,6 +42,15 @@
     <%= form.text_field :price, id: :product_price %>
   </div>
 
+ <div class="field">
+    <%= form.label :recipe %>
+    <%= form.text_area :recipes, rows: 6, id: :product_recipes %>
+  </div>
+
+    <div class="field">
+    <%= form.label :recipe_url %>
+    <%= form.text_field :recipe_url, id: :product_recipe_url %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
