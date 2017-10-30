@@ -8285,6 +8285,10 @@ a.text-dark:focus, a.text-dark:hover {
   font: 500 110% 'Helvetica Neue', Helvetica, Arial;
 }
 
+.profuct-into-font{
+  font: 500 150% 'Helvetica Neue', Helvetica, Arial;
+}
+
 .navigation-bar-backgroud {
   background-color: white !important;
 }
@@ -8357,6 +8361,11 @@ ul li {
   margin-left: 50%;
 }
 
+.product-info{
+  margin-left:15px;
+  margin-top: 10px;
+  margin-right: 15px;
+}
 
 .shopping-cart{
   display:block;
@@ -8397,6 +8406,25 @@ ul li {
 }
 
 
+.add-to-cart-button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #fff !important;
+  font: 500 130% 'Helvetica Neue', Helvetica, Arial;
+  background-color: #2dcf4e;
+  padding: 7px 10px 7px 10px;
+  margin-bottom: 16px;
+  margin-left: 156px;
+  text-decoration: none;
+  border: none !important;
+  outline: none !important;
+}
+
+.add-to-cart-button:hover {
+  background: #24bd47;
+  text-decoration: none;
+}
 
 
 

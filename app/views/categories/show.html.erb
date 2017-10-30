@@ -1,16 +1,40 @@
 <%# CATERGORIES SHOW PAGE - shows the categories and SHOULD be the HOMEPAGE %>
 <%# This will show a *CERTAIN* *CLICKED* category %>
+
+
+<div class="navigation-bar-container">
+  <%=image_tag('white.jpg', alt: 'white', height: 70, width: 70) %>
+</div>
+
+<div class="healthway" style="margin-left: 90px;">
 <h2><%= @category.name %></h2>
+</div>
+
 <div id="books.index">
   <% @products.each_slice(3) do |product| %>
     <div class="row">
+
+      <div class="card-info-container">
+      <%=image_tag('white.jpg', alt: 'white', height: 37, width: 42) %>
+      </div>
+
       <% product.each do |product| %>
-        <div class="col-md-3 col-sm-3">
-          <div class="title"><%= link_to product.title, product %></div>
-          <%= link_to image_tag(product.image_url, alt: product.title, height: 150, width: 225), product %>
-          <div class="price"><%= number_to_currency product.price %></div>
-          <%= link_to 'Select', product_path(product), class:'btn btn-primary' %>
-          <%= button_to 'Add to Cart', :controller => :cart, :action => :add, :id => product %> 
+        <div class="card-container">
+        <div class="shadowed-card">
+          
+          <%= link_to image_tag(product.image_url, alt: product.title, height: 200, width: 300), product %>
+
+          <div class="column profuct-into-font product-info" >
+            <div class="title"><%= link_to product.title, product %></div>
+            <div class="price"><%= number_to_currency product.price %></div>
+          </div>
+
+          <!-- <%= link_to 'Select', product_path(product), class:'button' %>   -->
+          <div class="product-info" >
+          <%= button_to 'Add to Cart', {:controller => :cart, :action => :add, :id => product}, {:class => "add-to-cart-button" } %> 
+          </div>
+
+        </div>
         </div>
       <% end %>
     </div>

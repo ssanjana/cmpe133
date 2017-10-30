@@ -7,15 +7,14 @@
 
 <div class="navigation-bar-container">
   <ul>
-    <li class="one navigation-bar-item"><a-nav href="#">Aisle</a-nav></li><!--
- --><li class="two navigation-bar-item"><a-nav href="#">History</a-nav></li><!--
- --><li class="three navigation-bar-item"><a-nav href="#">Savings</a-nav></li>
+    <li class="one navigation-bar-item"><a-nav href="#">Aisle</a-nav></li>
+    <li class="two navigation-bar-item"><a-nav href="#">History</a-nav></li>
+    <li class="three navigation-bar-item"><a-nav href="#">Savings</a-nav></li>
     <hr />
   </ul>
 </div>
 
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div id="categories.index">
   <% @categories.each_slice(3) do |category| %>
@@ -28,10 +27,7 @@
     <% category.each do |category| %>
     <div class="card-container">
     <div class="shadowed-card">
-
-      <%# MAKE SURE ALL CATEGORIES HAVE A PICTURE OR ELSE THIS WILL FAIL %>
       <%= link_to image_tag(category.image_url, alt: category.name, height: 200, width: 300), category_path(category.id) %>
-
       <div class="card-info-container"><h4><b><%= link_to category.name, category %></b></h4></div>
       </div>
       </div>
@@ -40,5 +36,3 @@
   </div>
   <% end %>
 </div>
-
-
