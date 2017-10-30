@@ -2,48 +2,100 @@
 <%# This is where we can see an individual product and it's info.
     NEXT to add here are suggestions in a div below.
  %>
+<style type="text/css">
+.hmtl, body {
+  height: 100%;
+  width: 100%
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  margin-top: 200px
+  max-width: 1200 px;
+  padding: 15px;
+  display: flex;
+}
+.left-column {
+  width: 65%;
+  margin-top: 50px;
+  position: relative;
+}
+.right-column {
+  width: 35%;
+  margin-top: 60px;
+}
+.product-description{
+  border-bottom: 1px solid #E1E8EE;
+  margin-bottom: 20px;
+}
+.product-description span{
+  font-size:12px;
+  color: #358ED7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.product-description h1 {
+  font-weight:300;
+  font-size: 52px;
+  color: #43484D;
+  letter-spacing: -2px;
+}
+.product-description {
+  font-size: 16px;
+  font-weight: 300;
+  color: #86939E;
+  line-height: 24px;
+}
+.product-price{
+  display: flex;
+  align-items: center;
+}
+.product-price span{
+  font-size:26px;
+  font-weight: 300;
+  color: #43474D;
+  margin-right: 20px;
+}
+.cart-btn{
+  display: inline-block;
+  background-color: #7DC855;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all .5s; 
+}
+.cart-btn:hover {
+  background-color: #64af3d: 
+}
 
- <p>  
-  <%= image_tag @product.image_url %>
-</p>
-
-<p>
-  <br>
-  <br>
-  <strong style="color: green; font-size: 40px; font-family: Times New Roman;">Title:</strong>
-  <%= @product.title %>
-</p>
-
-<p>
-  <strong style="color: green; font-size: 40px; font-family: Times New Roman;">Category:</strong>
-  <%= @product.category.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency @product.price %>
-</p>
-
-<p>
-  <strong>Interesting Recipe:</strong>
-  <%= @product.recipes %>
-</p>
-
-<p>
-  <strong>Recipe url:</strong>
-  <%= @product.recipe_url %>
-   <% if @product.recipe_url.present? %>
-  <%= image_tag @product.recipe_url %>
-  <% end %>
-</p>
-
-
-
+</style>
+<main class="container">
+  <!-- Left Column -->
+  <div class="left-column">
+    <div class="image"><%= image_tag(@product.image_url, alt: @product.title, height: 400, width: 600,)%>
+    </div>
+  </div>
+  <!-- Right Column -->
+  <div class="right-column">
+    <div class="product-description">
+      <span><%= @product.category.name %></span>
+      <h1><%= @product.title %></h1>
+      <p><%= @product.description %></p>
+      <!--TO DO... -->
+      <span>Recipe</span>
+      <p>Ingredient used in the following recipe(s)</p>
+       <p>Small image of the recipes will be displayed here</p>
+    </div>
+    <div class="product-price">
+      <span><%= number_to_currency @product.price %></span>
+      <a href="#" class="cart-btn">Add to cart</a>
+    </div>
+  </div>
+</main>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
