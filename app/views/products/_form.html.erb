@@ -42,9 +42,19 @@
     <%= form.text_field :price, id: :product_price %>
   </div>
 
+   <div class="field">
+    <%= form.label :recipe_Title%>
+    <%= form.text_area :recipes, rows: 2, id: :product_recipes %>
+  </div>
+
  <div class="field">
-    <%= form.label :recipe %>
-    <%= form.text_area :recipes, rows: 6, id: :product_recipes %>
+    <%= form.label :recipe_Ingredients%>
+    <%= form.text_area :recipe_ingredients, rows: 6, id: :product_recipe_ingredients %>
+  </div>
+
+ <div class="field">
+    <%= form.label :recipe_Instructions%>
+    <%= form.text_area :recipe_instructions, rows: 6, id: :product_recipe_instructions %>
   </div>
 
     <div class="field">

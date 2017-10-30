@@ -70,6 +70,9 @@
 .cart-btn:hover {
   background-color: #64af3d: 
 }
+.image-style{
+  border-radius: 10px;
+}
 
 </style>
 <main class="container">
@@ -86,8 +89,17 @@
       <p><%= @product.description %></p>
       <!--TO DO... -->
       <span>Recipe</span>
-      <p>Ingredient used in the following recipe(s)</p>
-       <p>Small image of the recipes will be displayed here</p>
+      <% if (@product.recipes.present?) then %>
+      <p><b><%= @product.recipes %></b></p>
+      <font color="green">Ingredients:</font>
+      <p><%= @product.recipe_ingredients %></p>
+      <font color="green">Instructions:</font>
+      <p><%= @product.recipe_instructions %></p>
+      <% end %>
+      <% if (@product.recipe_url.present?) then %>
+      <%= image_tag(@product.recipe_url, alt: @product.title, height: 140, width: 260, class:"image-style")%>
+      <% end %>
+      <p></p>
     </div>
     <div class="product-price">
       <span><%= number_to_currency @product.price %></span>
