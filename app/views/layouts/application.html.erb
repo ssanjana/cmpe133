@@ -95,11 +95,48 @@
      </div>
    </nav>
 
+<div class="navigation-bar-container">
+  <%=image_tag('white.jpg', alt: 'white', height: 60, width: 70) %>
+</div>
 
+
+<div class="navigation-bar-container">
+  <ul>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <li class="one navigation-bar-item"><%= link_to "Aisles", root_path%></li>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <li class="two navigation-bar-item"><%= link_to "History", history_index_path%></li>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+   <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path%></li>
+  </ul>
+</div>
+
+</body>
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
    <!-- HEADER -->
 
   <%= yield %>
-
-  </body>
 </html>
