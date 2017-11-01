@@ -2,6 +2,30 @@
 <%# This is where we can see an individual product and it's info.
     NEXT to add here are suggestions in a div below.
  %>
+<head>
+<script type="text/javascript">
+// Quantity spin buttons
+function increase_by_one(field) {
+ nr = parseInt(document.getElementById(field).value);
+ document.getElementById(field).value = nr + 1;
+}
+ 
+function decrease_by_one(field) {
+ nr = parseInt(document.getElementById(field).value);
+ if (nr > 0) {
+   if( (nr - 1) > 0) {
+     document.getElementById(field).value = nr - 1;
+   }
+ }
+} 
+</script>
+ 
+<style type="text/css">
+#qty1 { width: 30px; }
+ 
+</style>
+</head>
+
 <style type="text/css">
 .hmtl, body {
   height: 100%;
@@ -104,6 +128,10 @@
     <div class="product-price">
       <span><%= number_to_currency @product.price %></span>
       <a href="#" class="cart-btn">Add to cart</a>
+      <div class="cart-quantity">
+      	Qty: <input id="qty1" type="text" value="1" name="qty">
+      	<button onclick="increase_by_one('qty1');">+</button>
+      	<button onclick="decrease_by_one('qty1');">-</button>
     </div>
   </div>
 </main>
