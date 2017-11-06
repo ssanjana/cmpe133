@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030192941) do
+ActiveRecord::Schema.define(version: 20171106190748) do
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -19,11 +24,12 @@ ActiveRecord::Schema.define(version: 20171030192941) do
     t.string "image_url"
   end
 
-  create_table "guests", force: :cascade do |t|
-    t.string "email", default: "", null: false
+  create_table "line_items", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "cart_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_guests_on_email", unique: true
   end
 
   create_table "products", force: :cascade do |t|

@@ -28,7 +28,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
+  #CURRENT CART is a session method that keeps the user's cart
+  def current_cart
+    Cart.find(session[:cart_id])
+  rescue ActiveRecord::RecordNotFound
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
+  end
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
     def logging_in
@@ -46,5 +53,5 @@ class ApplicationController < ActionController::Base
     session[:guest_user_id] = u.id
     u
     end
-  
+
 end
