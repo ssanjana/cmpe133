@@ -37,7 +37,7 @@
 
           <!-- <%= link_to 'Select', product_path(product), class:'button' %>   -->
           <div class="product-info" >
-          <%= button_to 'Add to Cart', {:controller => :cart, :action => :add, :id => product}, {:class => "add-to-cart-button" } %> 
+          <%= button_to 'Add to Cart', line_items_path(product_id: product), {:class => "add-to-cart-button" } %> 
           </div>
 
         </div>
