@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :line_items
+  resources :carts
   devise_for :users
-  get 'cart/index'
 
-  get 'cart/add'
-
-  get 'cart/edit'
   # map.resources :cart
   # map.connect ":controller/:action/:id"
   #instructs rails ro route correctly
@@ -27,8 +26,8 @@ Rails.application.routes.draw do
 
   get 'history/index'
 
-  match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
-  
+  #match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
+
   root 'categories#index'
 
   resources :products
