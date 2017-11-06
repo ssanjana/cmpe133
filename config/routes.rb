@@ -25,9 +25,11 @@ Rails.application.routes.draw do
   get 'savings/index'
 
   get 'history/index'
+  
+  get 'recipe/index'
 
-  #match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
-
+  match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
+  
   root 'categories#index'
 
   resources :products
@@ -35,6 +37,7 @@ Rails.application.routes.draw do
   resources :cart
   resources :savings
   resources :history
+  resources :recipe
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
