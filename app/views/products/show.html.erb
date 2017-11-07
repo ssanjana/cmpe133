@@ -127,11 +127,11 @@ function decrease_by_one(field) {
     </div>
     <div class="product-price">
       <span><%= number_to_currency @product.price %></span>
-      <a href="#" class="cart-btn">Add to cart</a>
       <div class="cart-quantity">
-      	Qty: <input id="qty1" type="text" value="1" name="qty">
+      	Qty: <input id="qty1" type="integer" value="1" name="qty">
       	<button onclick="increase_by_one('qty1');">+</button>
       	<button onclick="decrease_by_one('qty1');">-</button>
+        <%= button_to 'Add to Cart', line_items_path(product_id: @product, quantity: @qty1), {:class => "add-to-cart-button" } %>
     </div>
   </div>
 </main>
