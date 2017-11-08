@@ -10,30 +10,13 @@
     - This should be a loop to display all products
     - in rows of 3
     ************************************************ %>
-<!-->
-<div id="products.index">
-  <% @products.each_slice(3) do |product| %>
-    <div class="row">
-            <% product.each do |product| %>
-        <div class="card-container">
-        <div class="shadowed-card">
-          
-          <%= link_to image_tag(product.image_url, alt: product.title, height: 200, width: 300), product %>
 
-          <div class="column profuct-into-font product-info" >
-            <div class="title"><%= link_to product.title, product %></div>
-            <div class="price"><%= number_to_currency product.price %></div>
-          </div>
+<% for cart in @carts %>
+<td><%=h cart.created_at %></td>
 
-          <%= link_to 'Select', product_path(product), class:'button' %>   
-          <div class="product-info" >
-          <%= button_to 'Add to Cart', {:controller => :cart, :action => :add, :id => product}, {:class => "add-to-cart-button" } %> 
-          </div>
-
-        </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
--->
+	<% for line_item in cart.line_items %>
+	    <td><%=h line_item.product.title %></td>
+        <td class="qty"><%= line_item.quantity %></td>
+        <td class="price"><%= line_item.product.price %></td>
+    <% end %> 
+<% end %>
