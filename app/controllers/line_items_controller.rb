@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-
+  attr_accessor :line_items
   # GET /line_items
   # GET /line_items.json
   def index
@@ -15,6 +15,7 @@ class LineItemsController < ApplicationController
   # GET /line_items/new
   def new
     @line_item = LineItem.new
+    #@line_item.quantity = 1
   end
 
   # GET /line_items/1/edit
@@ -26,7 +27,7 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
+    @line_item = @cart.add_item(product.id)
 
 
     respond_to do |format|
