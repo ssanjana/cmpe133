@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# The .delete_all method sets up a clean slate for seed data
+# Delete all the carts to remove from all shopping carts.
+Cart.delete_all
 Category.delete_all
 
 Category.create(id: 1, name:'Meats',
