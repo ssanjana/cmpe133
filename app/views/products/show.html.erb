@@ -9,7 +9,7 @@ function increase_by_one(field) {
  nr = parseInt(document.getElementById(field).value);
  document.getElementById(field).value = nr + 1;
 }
- 
+
 function decrease_by_one(field) {
  nr = parseInt(document.getElementById(field).value);
  if (nr > 0) {
@@ -17,12 +17,12 @@ function decrease_by_one(field) {
      document.getElementById(field).value = nr - 1;
    }
  }
-} 
+}
 </script>
- 
+
 <style type="text/css">
 #qty1 { width: 30px; }
- 
+
 </style>
 </head>
 
@@ -89,13 +89,13 @@ function decrease_by_one(field) {
   color: #FFFFFF;
   text-decoration: none;
   padding: 12px 30px;
-  transition: all .5s; 
+  transition: all .5s;
 }
 .cart-btn:hover {
-  background-color: #64af3d: 
+  background-color: #64af3d:
 }
 .image-style{
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 </style>
@@ -127,7 +127,10 @@ function decrease_by_one(field) {
     </div>
     <div class="product-price">
       <span><%= number_to_currency @product.price %></span>
-      <a href="#" class="cart-btn">Add to cart</a>
+      <!-- <a href="#" class="cart-btn">Add to cart</a> -->
+      <div class="product-info" >
+        <%= button_to 'Add to Cart', line_items_path(product_id: @product), {:class => "add-to-cart-button" } %>
+      </div>
       <div class="cart-quantity">
       	Qty: <input id="qty1" type="text" value="1" name="qty">
       	<button onclick="increase_by_one('qty1');">+</button>
@@ -138,4 +141,3 @@ function decrease_by_one(field) {
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
-
