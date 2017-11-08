@@ -62,7 +62,7 @@
 
         <!--<input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Search">-->
         <%=image_tag('white.jpg', alt: 'white', height: 40, width: 35) %>
-         
+
          <% if user_signed_in? %>
           <div class = "small-defaul-font">Logged in: <strong><%= current_user.email %></strong></div>
           <%=image_tag('white.jpg', alt: 'white', height: 10, width: 10) %>
@@ -75,11 +75,12 @@
           <button class="button" type="submit"><%= link_to "Login", new_user_session_path, :class => "small-button" %></button>
          <% end %>
 
-         <!-- 
+         <!--
          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
-         <button class="button" type="submit"><%= link_to "Cart", cart_path, :class => "small-button"%></button>   
+         <button class="button" type="submit"><%#= link_to "Cart", cart_path, :class => "small-button"%></button>
          -->
-         <%= link_to "0", cart_path, :class => "shopping-cart"%>  
+         <!-- TOOK THE CART PATH OUT FOR DEVELOPMENT OF CART-->
+         <%#= link_to "0", cart_path, :class => "shopping-cart"%>
 
          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 5) %>
 
@@ -98,14 +99,7 @@
     &nbsp;
     &nbsp;
     &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
     <li class="one navigation-bar-item"><%= link_to "Aisles", root_path%></li>
-    &nbsp;
-    &nbsp;
-    &nbsp;
     &nbsp;
     &nbsp;
     &nbsp;
@@ -115,13 +109,12 @@
     &nbsp;
     &nbsp;
     &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
    <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path%></li>
+    &nbsp;
+    &nbsp;
+   <li class="three navigation-bar-item"><%= link_to "Recipies", recipe_index_path%></li>
   </ul>
+  <hr></hr>
 </div>
 
 </body>

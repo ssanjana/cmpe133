@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 2px solid #5ada55;
+    text-align: left;
+    padding: 15px;
+}
+</style>
+<table id="line_items">
+   <tr>
+     <th>Product</th>
+     <th>Qty</th>
+     <th class="price">Unit Price</th>
+     <th class="price">Full Price</th>
+   </tr>
+
+   <% for item in @cart.line_items %>
+   <%# @cart.line_items.each do |item| %>
+     <tr class="<%= cycle :odd, :even %>">
+        <!-- <td><%#= @product.find_by(item.product_id).first %> -->
+        <td><%= item.product.title if item.product%></td>
+        <td class="qty"><%= item.quantity %> &times; </td>
+        <td class="price"><%= number_with_precision(item.product.price, :precision => 2) if item.product %></td>
+        <td class="price"><%= number_to_currency(item.total_price, :precision => 2) %></td>
+
+        <!-- <td class="price"><%#= gbp(item.full_price) %></td> -->
+     </tr>
+    <% end %>
+    <tr>
+
+   <td class="total price" colspan="4">
+     Total: <%#= @cart.total_price %> <!-- Will be fixing this ASAP -->
+   </td>
+   </tr>
+</table>
+<%#= link_to 'Edit', edit_cart_path(@cart) %> |
+<%#= link_to 'Back', carts_path %>
