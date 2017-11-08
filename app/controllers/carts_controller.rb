@@ -5,13 +5,11 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @carts = Cart.all
-    @line_items = @cart.line_items
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @line_items = @cart.line_items
   end
 
   # GET /carts/new
@@ -71,8 +69,6 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.fetch(:cart {})
-      params.require(:cart).permit(:created_at, :line_items)
-  end
+      params.fetch(:cart, {})
     end
 end

@@ -1,4 +1,17 @@
 <p id="notice"><%= notice %></p>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 2px solid #5ada55;
+    text-align: left;
+    padding: 15px;
+}
+</style>
 <table id="line_items">
    <tr>
      <th>Product</th>
@@ -8,10 +21,14 @@
    </tr>
 
    <% for item in @cart.line_items %>
+   <%# @cart.line_items.each do |item| %>
      <tr class="<%= cycle :odd, :even %>">
-        <td><%=h item.product.title %></td>
-        <td class="qty"><%= item.quantity %></td>
-        <td class="price"><%= item.product.price %></td>
+        <!-- <td><%#= @product.find_by(item.product_id).first %> -->
+        <td><%= item.product.title if item.product%></td>
+        <td class="qty"><%= item.quantity %> &times; </td>
+        <td class="price"><%= number_with_precision(item.product.price, :precision => 2) if item.product %></td>
+        <td class="price"><%= number_to_currency(item.total_price, :precision => 2) %></td>
+
         <!-- <td class="price"><%#= gbp(item.full_price) %></td> -->
      </tr>
     <% end %>
