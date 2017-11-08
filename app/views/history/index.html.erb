@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
  <!-- <h1>History Page</h1>     --> 
   <p> </p>
@@ -12,11 +13,22 @@
     ************************************************ %>
 
 <% for cart in @carts %>
-<td><%=h cart.created_at %></td>
+  <div class="card-info-container">
+  <div class="shadowed-card">
+      <%=image_tag('white.jpg', alt: 'white', height: 40, width: 100) %>
+      Bought at <td><%= h cart.created_at %></td>
 
-	<% for line_item in cart.line_items %>
-	    <td><%=h line_item.product.title %></td>
+     <% for line_item in cart.line_items %>
+     <div class="row">
+     <%=image_tag('white.jpg', alt: 'white', height: 20, width: 30) %>
+     <div class="card-container">
+     <div class="shadowed-card">
+     	<%= link_to image_tag(line_item.product.image_url, alt: line_item.product.title, height: 300, width: 300), line_item %>
+	    <td> <%=h line_item.product.title %></td>
         <td class="qty"><%= line_item.quantity %></td>
         <td class="price"><%= line_item.product.price %></td>
-    <% end %> 
+
+   </div>
+   </div>
+   <% end %> 
 <% end %>
