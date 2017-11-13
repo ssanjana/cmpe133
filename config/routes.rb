@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   
   get 'recipe/index'
 
+  get 'charges/new'
+
+  get 'charges/create'
 
   #match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
   

@@ -22,7 +22,7 @@
 
 
 <%if user_signed_in? %>
-  <%if current_user.is_user%>
+  <%if !current_user.is_user%>
     <div class="container-fluid">
       <!-- <h1>History Page</h1>     --> 
       <p> </p>
