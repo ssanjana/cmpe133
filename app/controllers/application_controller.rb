@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive_guest
+  before_action :configure_permitted_parameters, if: :devise_controller?  
 
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
@@ -25,6 +26,11 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
      session[:guest_user_id] = nil
      guest_user if with_retry
+  end
+
+  protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :card, :guest) }
   end
 
   private
