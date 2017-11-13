@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
@@ -9,3 +10,16 @@ two:
   product_id: 1
   cart_id: 1
   quantity: 1
+=======
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  cart_id: 1
+  quantity: 1
+
+two:
+  product_id: 1
+  cart_id: 1
+  quantity: 1
+>>>>>>> 4933270bbf7bc821417be985da244c8d8dadcc30

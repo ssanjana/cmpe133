@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 <%# This is where we can see an individual product and it's info.
     NEXT to add here are suggestions in a div below.
@@ -141,3 +142,148 @@ function decrease_by_one(field) {
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', session[:return_to] = request.referer %>
+=======
+<p id="notice"><%= notice %></p>
+<%# This is where we can see an individual product and it's info.
+    NEXT to add here are suggestions in a div below.
+ %>
+<head>
+<script type="text/javascript">
+// Quantity spin buttons
+function increase_by_one(field) {
+ nr = parseInt(document.getElementById(field).value);
+ document.getElementById(field).value = nr + 1;
+}
+
+function decrease_by_one(field) {
+ nr = parseInt(document.getElementById(field).value);
+ if (nr > 0) {
+   if( (nr - 1) > 0) {
+     document.getElementById(field).value = nr - 1;
+   }
+ }
+}
+</script>
+
+<style type="text/css">
+#qty1 { width: 30px; }
+
+</style>
+</head>
+
+<style type="text/css">
+.hmtl, body {
+  height: 100%;
+  width: 100%
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  margin-top: 200px
+  max-width: 1200 px;
+  padding: 15px;
+  display: flex;
+}
+.left-column {
+  width: 65%;
+  margin-top: 50px;
+  position: relative;
+}
+.right-column {
+  width: 35%;
+  margin-top: 60px;
+}
+.product-description{
+  border-bottom: 1px solid #E1E8EE;
+  margin-bottom: 20px;
+}
+.product-description span{
+  font-size:12px;
+  color: #358ED7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.product-description h1 {
+  font-weight:300;
+  font-size: 52px;
+  color: #43484D;
+  letter-spacing: -2px;
+}
+.product-description {
+  font-size: 16px;
+  font-weight: 300;
+  color: #86939E;
+  line-height: 24px;
+}
+.product-price{
+  display: flex;
+  align-items: center;
+}
+.product-price span{
+  font-size:26px;
+  font-weight: 300;
+  color: #43474D;
+  margin-right: 20px;
+}
+.cart-btn{
+  display: inline-block;
+  background-color: #7DC855;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all .5s;
+}
+.cart-btn:hover {
+  background-color: #64af3d:
+}
+.image-style{
+  border-radius: 10px;
+}
+
+</style>
+<main class="container">
+  <!-- Left Column -->
+  <div class="left-column">
+    <div class="image"><%= image_tag(@product.image_url, alt: @product.title, height: 400, width: 600,)%>
+    </div>
+  </div>
+  <!-- Right Column -->
+  <div class="right-column">
+    <div class="product-description">
+      <span><%= @product.category.name %></span>
+      <h1><%= @product.title %></h1>
+      <p><%= @product.description %></p>
+      <!--TO DO... -->
+      <span>Recipe</span>
+      <% if (@product.recipes.present?) then %>
+      <p><b><%= @product.recipes %></b></p>
+      <font color="green">Ingredients:</font>
+      <p><%= @product.recipe_ingredients %></p>
+      <font color="green">Instructions:</font>
+      <p><%= @product.recipe_instructions %></p>
+      <% end %>
+      <% if (@product.recipe_url.present?) then %>
+      <%= image_tag(@product.recipe_url, alt: @product.title, height: 140, width: 260, class:"image-style")%>
+      <% end %>
+      <p></p>
+    </div>
+    <div class="product-price">
+      <span><%= number_to_currency @product.price %></span>
+      <!-- <a href="#" class="cart-btn">Add to cart</a> -->
+      <div class="product-info" >
+        <%= button_to 'Add to Cart', line_items_path(product_id: @product), {:class => "add-to-cart-button" } %>
+      </div>
+      <div class="cart-quantity">
+      	Qty: <input id="qty1" type="text" value="1" name="qty">
+      	<button onclick="increase_by_one('qty1');">+</button>
+      	<button onclick="decrease_by_one('qty1');">-</button>
+    </div>
+  </div>
+</main>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+>>>>>>> 4933270bbf7bc821417be985da244c8d8dadcc30

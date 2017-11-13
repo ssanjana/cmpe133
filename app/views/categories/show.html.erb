@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%# CATERGORIES SHOW PAGE - shows the categories and SHOULD be the HOMEPAGE %>
 <%# This will show a *CERTAIN* *CLICKED* category %>
 
@@ -40,3 +41,47 @@
     </div>
   <% end %>
 </div>
+=======
+<%# CATERGORIES SHOW PAGE - shows the categories and SHOULD be the HOMEPAGE %>
+<%# This will show a *CERTAIN* *CLICKED* category %>
+
+
+<div class="navigation-bar-container">
+  <%=image_tag('white.jpg', alt: 'white', height: 70, width: 70) %>
+</div>
+
+<div class="healthway" style="margin-left: 90px;">
+<h2><%= @category.name %></h2>
+</div>
+
+<div id="books.index">
+  <% @products.each_slice(3) do |product| %>
+    <div class="row">
+
+      <div class="card-info-container">
+      <%=image_tag('white.jpg', alt: 'white', height: 37, width: 42) %>
+      </div>
+
+      <% product.each do |product| %>
+        <div class="card-container">
+        <div class="shadowed-card">
+
+          <%= link_to image_tag(product.image_url, alt: product.title, height: 200, width: 300), product %>
+
+          <div class="column profuct-into-font product-info" >
+            <div class="title"><%= link_to product.title, product %></div>
+            <div class="price"><%= number_to_currency product.price %></div>
+          </div>
+
+          <!-- <%= link_to 'Select', product_path(product), class:'button' %>   -->
+          <div class="product-info" >
+            <%= button_to 'Add to Cart', line_items_path(product_id: product), {:class => "add-to-cart-button" } %> 
+          </div>
+
+        </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+>>>>>>> 4933270bbf7bc821417be985da244c8d8dadcc30
