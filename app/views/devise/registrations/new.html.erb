@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-<br>
-<br>
-=======
 <div class="navigation-bar-container">
   <%=image_tag('white.jpg', alt: 'white', height:100, width: 70) %>
 </div>
 
->>>>>>> 4933270bbf7bc821417be985da244c8d8dadcc30
 <div class="defaul-font"><h2>Sign up</h2></div><br />
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -40,22 +35,15 @@
     <%= f.number_field :card, autofocus: true, :minimum_length => 16 %>
   </div><br />
 
-<<<<<<< HEAD
-=======
   <div class="Confirmation defaul-font">
     <%= f.label :"Save Your Account"%>
     <%= f.check_box(:guest, {checked: false})%>
   </div><br />
 
->>>>>>> 4933270bbf7bc821417be985da244c8d8dadcc30
   <div class="actions">
     <%= f.submit "Sign up", :class => "small-button"%>
   </div>
 
-<<<<<<< HEAD
-<% end %>
-=======
 <% end %>
 
 <%= render "devise/shared/links" %>
->>>>>>> 4933270bbf7bc821417be985da244c8d8dadcc30
