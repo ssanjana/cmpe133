@@ -1,3 +1,38 @@
-<div class="container-fluid">
-  <h1>Recipe Page</h1>     
+
+<div class="navigation-bar-container">
+  <%=image_tag('white.jpg', alt: 'white', height: 70, width: 70) %>
 </div>
+
+<div class="healthway" style="margin-left: 90px;">
+<h2>Recipe</h2>
+</div>
+<div id="books.index">
+      <div class="row">
+      <div class="card-info-container">
+      <%=image_tag('white.jpg', alt: 'white', height: 37, width: 42) %>
+      </div>
+     <% for product in @products %>
+     <% if (product.recipes.present?) then %>
+        <div class="card-container">
+        <div class="shadowed-card">
+        <% if (product.recipe_url.present?) then %>
+          <%= link_to image_tag(product.recipe_url, alt: product.recipes, height: 200, width: 300), product %>
+        <% end %>
+          <div class="column profuct-into-font product-info" >
+       		<p><b><%= product.recipes %></b></p>
+      		<font color="green">Ingredients:</font>
+      		<p><%= product.recipe_ingredients %></p>
+      		<font color="green">Instructions:</font>
+      		<p><%= product.recipe_instructions %></p>
+          </div>
+
+          <!-- <%= link_to 'Select', product_path(product), class:'button' %>   -->
+          <div class="product-info" >
+            <%= button_to 'Shop Recipe', line_items_path(product_id: product), {:class => "add-to-cart-button" } %> 
+          </div>
+        </div>
+        </div>
+       <% end %>
+     <% end %>
+</div>
+
