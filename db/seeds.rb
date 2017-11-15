@@ -49,6 +49,16 @@ Product.create(title:'Lunch Meat',
   image_url: 'meats/lunchmeat.jpg',
   price: 12.00)
 
+Product.create(title:'Blue Bottle coffee',
+  category_id:2,
+  description: %{Coffee is made of three simple ingredients: coffee, water, and time.},
+  image_url: 'beverages/blurbottle.jpg',
+  price: 3.99)
+Product.create(title:'Bai Variety Pack',
+  category_id:2,
+  description: %{Delicious fruit-inspired beverages available in 4 tropical flavors.},
+  image_url: 'beverages/bai.jpg',
+  price: 19.98)
 Product.create(title:'Mango Nectar',
   category_id:2,
   description: %{The BEST mango juice around. Straight from Costco},
@@ -63,6 +73,11 @@ Product.create(title:'Sprite',
   category_id:2,
   description: %{Get this soda that is fueling the economy keeping the sugar industry alive.},
   image_url: 'beverages/sprite.jpg',
+  price: 12.99)
+Product.create(title:'IZZE Sparkling Juice',
+  category_id:2,
+  description: %{IZZE Sparkling Juices are 70% pure fruit juice with a splash of sparkling water.},
+  image_url: 'beverages/izze.jpg',
   price: 12.99)
 
 Product.create(title:'Whole Wheat Bread',
@@ -124,6 +139,11 @@ Product.create(title:'Sriacha',
   description: %{For those who want some heat in their life.},
   image_url: 'condiments/sriacha.jpg',
   price: 4.00)
+Product.create(title:'California Extra Virgin Olive Oil',
+  category_id:5,
+  description: %{This delicate olive oil has a fruity nose and a smooth and buttery tongue with a very slight peppery finish. Perfect for baking cakes and cookies, for all-purpose mayonnaise and mashed potatoes or with tender salad greens, just to name a few of the many options. Made in the USA.},
+  image_url: 'condiments/oliveoil.jpg',
+  price: 15.00)
 
 Product.create(title:'Misc Fruit',
   category_id:6,

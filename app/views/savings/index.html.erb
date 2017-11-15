@@ -33,6 +33,8 @@
 }
 </style>
 
+<%if user_signed_in? %>
+  <%if !current_user.guest?%>
 <div class="container-fluid">       
   <br>
 
@@ -123,3 +125,11 @@
 -->
 
 </div>
+<% elsif current_user.guest? %>
+You have to be a registered member of Healthway to start saving.
+<%else%>
+You messed up somewhere.
+<% end %>
+<%else%>
+Log in and start saving.
+<% end %>

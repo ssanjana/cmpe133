@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :carts
   devise_for :users
 
+  resources :line_item
+  resources :cart
+
+  resources :charges
+  
   # map.resources :cart
   # map.connect ":controller/:action/:id"
   #instructs rails ro route correctly
@@ -25,11 +30,15 @@ Rails.application.routes.draw do
   get 'savings/index'
 
   get 'history/index'
-  
+
   get 'recipe/index'
 
+  get 'charges/new'
+
+  get 'charges/create'
+
   #match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
-  
+
   root 'categories#index'
 
   resources :products
