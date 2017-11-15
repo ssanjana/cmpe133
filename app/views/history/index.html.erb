@@ -1,39 +1,72 @@
-<div class="container-fluid">
- <!-- <h1>History Page</h1>     --> 
-  <p> </p>
-  <p>You have made the following purchases recently...</p>       
-</div>
+<style>
+.buy-it-again-button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #fff !important;
+  font: 500 100% 'Helvetica Neue', Helvetica, Arial;
+  background-color: #2dcf4e;
+  padding: 5px 8px 5px 8px;
+  margin-bottom: 16px;
+  margin-left: 156px;
+  text-decoration: none;
+  border: none !important;
+  outline: none !important;
+}
 
-<%# ***************Items Grid form *****************
-    From 7 Creating Books(Products) YouTube video
-    - Due to it being the products index,
-    - This should be a loop to display all products
-    - in rows of 3
-    ************************************************ %>
-<!-->
-<div id="products.index">
-  <% @products.each_slice(3) do |product| %>
-    <div class="row">
-            <% product.each do |product| %>
-        <div class="card-container">
-        <div class="shadowed-card">
-          
-          <%= link_to image_tag(product.image_url, alt: product.title, height: 200, width: 300), product %>
+.add-to-cart-button:hover {
+  background: #24bd47;
+  text-decoration: none;
+}
+</style>
 
-          <div class="column profuct-into-font product-info" >
-            <div class="title"><%= link_to product.title, product %></div>
-            <div class="price"><%= number_to_currency product.price %></div>
-          </div>
 
-          <%= link_to 'Select', product_path(product), class:'button' %>   
-          <div class="product-info" >
-          <%= button_to 'Add to Cart', {:controller => :cart, :action => :add, :id => product}, {:class => "add-to-cart-button" } %> 
-          </div>
-
-        </div>
-        </div>
-      <% end %>
+<%if user_signed_in? %>
+  <%if !current_user.guest?%>
+    <div class="container-fluid">
+      <!-- <h1>History Page</h1>     --> 
+      <p> </p>
+            
     </div>
-  <% end %>
-</div>
--->
+    <%# ***************Items Grid form *****************
+      From 7 Creating Books(Products) YouTube video
+        - Due to it being the products index,
+        - This should be a loop to display all products
+        - in rows of 3
+        ************************************************ %>
+
+    <% for cart in @carts %>
+      
+      <div class="row" style="margin-left: 100px">
+        
+        <div style="font: 500 170% 'Helvetica Neue', Helvetica, Arial; margin-top: 40px; margin-right: 90px">
+        Bought at<br />
+         <td><%= h cart.created_at %></td>
+        </div>
+
+        
+        <% for line_item in cart.line_items %>
+          <div style="width: 350px">
+
+            <div class="card-container" style="width: 350px">
+     	        <%= link_to image_tag(line_item.product.image_url, alt: line_item.product.title, height: 180, width: 270), line_item %>
+	             <div style="font: 500 120% 'Helvetica Neue', Helvetica, Arial"><%= link_to line_item.product.title, line_item.product %></div>
+              <div style="font: 500 120% 'Helvetica Neue', Helvetica, Arial"><%= number_to_currency line_item.product.price %></div>
+              <%= button_to 'Buy it Again', line_items_path(product_id: line_item.product), {:class => "buy-it-again-button" } %>    
+	          </div>
+	        </div>
+        
+
+        <%end%>
+
+      </div>
+    <%end%>
+  <%elsif current_user.guest?%>
+    Register.
+  <%else%>
+    You done fucked up, son.
+  <%end%>
+
+<% else %>
+You need to be a registered member to use our history.
+<%end%>
