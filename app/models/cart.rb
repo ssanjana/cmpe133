@@ -16,5 +16,10 @@ class Cart < ApplicationRecord
   end
   # for loop iterating through all the line_items to add up for a cart subtotal
   def subtotal
+    subtotal = 0
+    line_items.each do |item|
+      subtotal = subtotal + item.total_price
+    end
+    subtotal
   end
 end

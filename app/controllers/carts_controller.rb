@@ -61,6 +61,12 @@ class CartsController < ApplicationController
     end
   end
 
+  def remove_item(product_id, line_items)
+    line_items.delete(product_id)
+    @cart = current_cart
+    redirect_to @cart
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
