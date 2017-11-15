@@ -1,6 +1,5 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
-  
 
   def add_item(product_id)
     item = line_items.find_by_product_id(product_id)
@@ -17,5 +16,10 @@ class Cart < ApplicationRecord
   end
   # for loop iterating through all the line_items to add up for a cart subtotal
   def subtotal
+    subtotal = 0
+    line_items.each do |item|
+      subtotal = subtotal + item.total_price
+    end
+    subtotal
   end
 end

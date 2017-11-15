@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <style>
 table {
     font-family: arial, sans-serif;
@@ -18,34 +17,31 @@ td, th {
    <tr>
      <th>Picture</th>
      <th>Product</th>
-     <th>Quantity</th>
+     <th>Qty</th>
      <th class="price">Unit Price</th>
      <th class="price">Full Price</th>
-     
    </tr>
 
+
+   <%# This for loop displays all items in a session's(customer's) cart %>
    <% for item in @cart.line_items %>
-   <%# @cart.line_items.each do |item| %>
+
      <tr class="<%= cycle :odd, :even %>">
-        <!-- <td><%#= @product.find_by(item.product_id).first %> -->
         <td><%=image_tag(item.product.image_url, alt: 'white', height: 40, width: 40) %></td>  
-        
         <td><%= item.product.title if item.product%></td>
         <td class="qty"><%= item.quantity %> &times; </td>
         <td class="price"><%= number_with_precision(item.product.price, :precision => 2) if item.product %></td>
         <td class="price"><%= number_to_currency(item.total_price, :precision => 2) %></td>
-
-        <!-- <td class="price"><%#= gbp(item.full_price) %></td> -->
+        <%# Add a button to destroy a line item %>
+        <td><%= button_to "Remove Item", item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
      </tr>
     <% end %>
     <tr>
 
    <td class="total price" colspan="4">
-     Total: <%#= @cart.total_price %> <!-- Will be fixing this ASAP -->
+     Total: <%= number_to_currency(@cart.subtotal) %><%#= @cart.total_price %>
    </td>
    </tr>
 </table>
 <a href="/charges/new" class="button">Proceed to Checkout</a>
 </div>
-<%#= link_to 'Edit', edit_cart_path(@cart) %> 
-<%#= link_to 'Back', carts_path %>
