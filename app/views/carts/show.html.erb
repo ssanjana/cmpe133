@@ -36,7 +36,7 @@ td, th {
     <tr>
 
    <td class="total price" colspan="4">
-     Total: <%= @cart.subtotal %><%#= @cart.total_price %>
+     Total: <%= number_to_currency(@cart.subtotal) %><%#= @cart.total_price %>
    </td>
    </tr>
 </table>
