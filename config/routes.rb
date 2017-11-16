@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'searches/new'
+
+  get 'searches/create'
+
+  get 'searches/show'
+
   resources :line_items
   resources :carts
   resources :searches
