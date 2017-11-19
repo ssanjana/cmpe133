@@ -55,10 +55,11 @@
        </ul>
 
        <form class="form-inline my-2 my-lg-0">
-        <%= form_tag products_path, :method => 'get', :controller => 'products_controller' do %>
+        <%= form_tag :controller => "products", :action => "index", method: :get do %>
             <%= label_tag(:q, "Search: ") %>
             <%= text_field_tag(:search, params[:search])%>
-            <%= link_to "Advanced Search", new_search_path %>
+            <%= link_to "Search", :controller => "products", method: :get%>
+            <%= link_to "Advanced Search", :controller => :searches, action: 'new' %>
         <% end %>
 
         <!--<input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Search">-->

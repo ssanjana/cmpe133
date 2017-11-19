@@ -22,9 +22,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @categories = Category.all
-    @categories = Category.search(params[:search])
     @products = @category.products
-    @products = Product.search(params[:search])
   end
 
   private
