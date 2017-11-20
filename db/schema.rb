@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120203340) do
+ActiveRecord::Schema.define(version: 20171120035549) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,11 +28,17 @@ ActiveRecord::Schema.define(version: 20171120203340) do
     t.integer "amount"
     t.integer "coupon_id"
     t.string "stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "coupons", force: :cascade do |t|
     t.string "code"
     t.integer "discount_percent"
+    t.datetime "expires_at"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -69,7 +75,7 @@ ActiveRecord::Schema.define(version: 20171120203340) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "encrypted_password", default: "123456", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
