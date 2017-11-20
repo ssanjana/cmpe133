@@ -1,24 +1,16 @@
 <!-- This is the homepage and should be where we can find aisles too -->
-
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-<div id="categories.index">
-  <% @categories.each_slice(3) do |category| %>
-  <div class="row">
-
-    <div class="card-info-container">
-      <%=image_tag('white.jpg', alt: 'white', height: 37, width: 42) %>
+<ul id="cd-gallery-items" class="cd-container">
+   <% @categories.each_slice(3) do |category| %>
+      <div class="row">
+       <% category.each do |category| %>
+         <li>
+          <div class="card-container">
+            <%= link_to image_tag(category.image_url, alt: category.name, height: 200, width: 300), category_path(category.id) %>
+          <%= link_to category.name, category %>
+          </div>
+         </li>
+        <% end %>
     </div>
-    
-    <% category.each do |category| %>
-    <div class="card-container">
-    <div class="shadowed-card">
-      <%= link_to image_tag(category.image_url, alt: category.name, height: 200, width: 300), category_path(category.id) %>
-      <div class="card-info-container"><h4><b><%= link_to category.name, category %></b></h4></div>
-      </div>
-      </div>
-    <% end %>
-  
-  </div>
-  <% end %>
-</div>
+    <br>
+   <% end %>
+</ul> 
