@@ -55,9 +55,11 @@
        </ul>
 
        <form class="form-inline my-2 my-lg-0">
-        <%= form_tag products_path, :method => 'get' do %>
+        <%= form_tag searches_path, method: :get do %>
             <%= label_tag(:q, "Search: ") %>
             <%= text_field_tag(:search, params[:search])%>
+            <%= link_to "Search", products_path, class: "btn", method: :get%>
+            <%= link_to "Advanced Search", new_search_path, class: "btn", action: 'new' %>
         <% end %>
 
         <!--<input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Search">-->
@@ -100,22 +102,22 @@
     &nbsp;
     &nbsp;
     &nbsp;
-    <li class="one navigation-bar-item"><%= link_to "Aisles", root_path%></li>
+    <li class="one navigation-bar-item"><%= link_to "Aisles", root_path, class: "btn"%></li>
     &nbsp;
     &nbsp;
     &nbsp;
     &nbsp;
-    <li class="two navigation-bar-item"><%= link_to "History", history_index_path%></li>
+    <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "btn"%></li>
     &nbsp;
     &nbsp;
     &nbsp;
     &nbsp;
-   <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path%></li>
+   <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path, class: "btn"%></li>
     &nbsp;
     &nbsp;
     &nbsp;
     &nbsp;
-   <li class="three navigation-bar-item"><%= link_to "Recipies", recipe_index_path%></li>
+   <li class="three navigation-bar-item"><%= link_to "Recipies", recipe_index_path, class: "btn"%></li>
   </ul>
 </div>
 

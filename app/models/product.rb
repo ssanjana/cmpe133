@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
   #ADDED dependency to line_items and a method
   has_many :line_items
+  
 
   before_destroy :ensure_not_referenced_by_any_line_item
 

@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'searches/new'
+
+  get 'searches/create'
+
+  get 'searches/show'
+
   resources :line_items
   resources :carts
+  resources :searches
   devise_for :users
 
   resources :line_item
@@ -36,6 +43,10 @@ Rails.application.routes.draw do
   get 'charges/new'
 
   get 'charges/create'
+
+  get 'searches/index'
+
+  get 'searches/show'
 
   #match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
 

@@ -3,7 +3,7 @@ class Category < ApplicationRecord
 
   def self.search(search)
     if search
-      self.where("name like ?", "%#{search}%")
+      self.joins(:products).where("title like ?", "%#{search}%")
     else
       self.all
     end
