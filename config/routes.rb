@@ -44,6 +44,10 @@ Rails.application.routes.draw do
 
   get 'charges/create'
 
+  get 'searches/index'
+
+  get 'searches/show'
+
   #match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
 
   root 'categories#index'

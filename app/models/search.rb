@@ -1,4 +1,4 @@
-class Search < ApplicationRecord
+class Search < ActiveRecord::Base
   def result
       @result ||= find_result
   end
