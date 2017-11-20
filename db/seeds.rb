@@ -30,10 +30,6 @@ Category.create(id: 8,name:'Snacks',
 Category.create(id: 9,name:'Vegetables',
   image_url: 'vegetables/vegetables.JPG')
 
-Coupon.delete_all
-#Coupon creation
-Coupon.create(code: 'SUMMERSALE', discount_percent: 5,
- )
 
 Product.delete_all
 #Product creation!
@@ -102,15 +98,13 @@ Product.create(title:'Mini French Bread',
   image_url: 'bread/bread2.jpg',
   price: 18.00)
 
-Product.create(title:'Cereal in a Bowl',
+Product.create(title:'Choco Chimps',
   category_id:4,
   description:
     %{
-      Frosted Flakes (supposedly) in a very aesthetic bowl which is hopefully
-      clean to be eating out of. A little bit of cereal was carelessly spilled,
-      but I think the table is clean too.
+      When you want to monkey around without all the pesticides. 
       },
-  image_url: 'breakfast/breakfast.JPG',
+  image_url: 'breakfast/coco.JPG',
   price: 7.95)
 Product.create(title:'Frosted Flakes',
   category_id:4,
@@ -143,13 +137,13 @@ Product.create(title:'Sriacha',
   description: %{For those who want some heat in their life.},
   image_url: 'condiments/sriacha.jpg',
   price: 4.00)
-Product.create(title:'Extra Virgin Olive Oil',
+Product.create(title:'California Extra Virgin Olive Oil',
   category_id:5,
   description: %{This delicate olive oil has a fruity nose and a smooth and buttery tongue with a very slight peppery finish. Perfect for baking cakes and cookies, for all-purpose mayonnaise and mashed potatoes or with tender salad greens, just to name a few of the many options. Made in the USA.},
   image_url: 'condiments/oliveoil.jpg',
   price: 15.00)
 
-Product.create(title:'Misc Fruit',
+Product.create(title:'Fruit Salad',
   category_id:6,
   description: %{it's fruit yo},
   image_url: 'fruits/fruits.JPG',
@@ -169,18 +163,48 @@ Product.create(title:'Dragon Fruit',
   description: %{Have some Asian kiwi in your life.},
   image_url: 'fruits/dragon.jpg',
   price: 0.99)
+Product.create(title:'Oranges',
+  category_id:6,
+  description: %{The best oranges from Florida.},
+  image_url: 'fruits/oranges.jpeg',
+  price: 2.99)
+Product.create(title:'Grapes',
+  category_id:1,
+  description: %{The most succulant grapes in the world.},
+  image_url: 'fruits/grapes.jpeg',
+  price: 3.99)
+Product.create(title:'Pomegranates',
+  category_id:1,
+  description: %{The forbbiden fruit.},
+  image_url: 'fruits/pomegranates.jpeg',
+  price: 3.99)
 
 Product.create(title:'Lactaid',
   category_id:7,
   description: %{Milk without the hassle!},
   image_url: 'milk-dairy/lactaid.jpg',
   price: 5.00)
-Product.create(title:'Philadelphia',
-  category_id:7,
-  description: %{Cream Cheese!},
-  image_url: 'milk-dairy/philadelphia.jpg',
-  price: 9.00)
 
+Product.create(title:'Swiss Cheese',
+  category_id:7,
+  description: %{Swiss Cheese!},
+  image_url: 'milk-dairy/swiss.jpg',
+  price: 9.00)
+Product.create(title:'Organic Chocolate Milk',
+  category_id:7,
+  description: %{Milk from chocolate cows!},
+  image_url: 'milk-dairy/organicChocolate.jpg',
+  price: 5.00)
+Product.create(title:'Organic Kefir',
+  category_id:7,
+  description: %{When you want something thick and tart!},
+  image_url: 'milk-dairy/kefir.jpg',
+  price: 5.00)
+Product.create(title:'Gouda Cheese',
+  category_id:7,
+  description: %{When you want really good cheese!},
+  image_url: 'milk-dairy/gouda.jpg',
+  price: 5.00)
 Product.create(title:'Cheddar Ruffles',
   category_id:8,
   description: %{The BEST Ruffles imo.},
@@ -191,7 +215,7 @@ Product.create(title:'Pringles',
   description: %{Chips in a tube!},
   image_url: 'snacks/pringles.jpg',
   price: 1.98)
-Product.create(title:'Sour Cream & Onion',
+Product.create(title:'Sour Cream and Onion Lays',
   category_id:8,
   description: %{The 1st Best flavor dude},
   image_url: 'snacks/sour-cream-and-onion-lays.jpg',
