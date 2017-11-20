@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
   
   def create
     @search = Search.create!(search_params)
-    redirect_to(@search)
+    redirect_to @search
   end
   
   def show
