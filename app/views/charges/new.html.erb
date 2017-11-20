@@ -5,10 +5,15 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="Total">
-      <span>Amount: $5.00</span>
-    </label>
-    
+    <p>
+      <label class="Total">
+        <span>Amount: $5.00</span>
+      </label>
+    </p>
+    <p>
+      <%= label_tag(:couponCode, 'Coupon:') %>
+      <%= text_field_tag(:couponCode) %>
+    </p>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

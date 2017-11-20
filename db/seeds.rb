@@ -30,6 +30,10 @@ Category.create(id: 8,name:'Snacks',
 Category.create(id: 9,name:'Vegetables',
   image_url: 'vegetables/vegetables.JPG')
 
+Coupon.delete_all
+#Coupon creation
+Coupon.create(code: 'SUMMERSALE', discount_percent: 5,
+ expires_at: 1.week.from_now)
 
 Product.delete_all
 #Product creation!
@@ -139,7 +143,7 @@ Product.create(title:'Sriacha',
   description: %{For those who want some heat in their life.},
   image_url: 'condiments/sriacha.jpg',
   price: 4.00)
-Product.create(title:'California Extra Virgin Olive Oil',
+Product.create(title:'Extra Virgin Olive Oil',
   category_id:5,
   description: %{This delicate olive oil has a fruity nose and a smooth and buttery tongue with a very slight peppery finish. Perfect for baking cakes and cookies, for all-purpose mayonnaise and mashed potatoes or with tender salad greens, just to name a few of the many options. Made in the USA.},
   image_url: 'condiments/oliveoil.jpg',
@@ -187,7 +191,7 @@ Product.create(title:'Pringles',
   description: %{Chips in a tube!},
   image_url: 'snacks/pringles.jpg',
   price: 1.98)
-Product.create(title:'Sour Cream and Onion Lays',
+Product.create(title:'Sour Cream & Onion',
   category_id:8,
   description: %{The 1st Best flavor dude},
   image_url: 'snacks/sour-cream-and-onion-lays.jpg',

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +11,19 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+<style type="text/css">
+.searchbar{
+    width: 130px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 15px;
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+    margin-right: 5px;
+}
+
+</style>
 
   <body>
 
@@ -56,10 +71,10 @@
 
        <form class="form-inline my-2 my-lg-0">
         <%= form_tag searches_path, method: :get do %>
-            <%= label_tag(:q, "Search: ") %>
-            <%= text_field_tag(:search, params[:search])%>
-            <%= link_to "Search", products_path, class: "btn", method: :get%>
-            <%= link_to "Advanced Search", new_search_path, class: "btn", action: 'new' %>
+            <%= label_tag(:q, "") %>
+            <%= text_field_tag(:search, params[:search], class: "searchbar")%>
+            <%= link_to "Search", products_path, class: "customized-btn", method: :get%>
+            <%= link_to "Advanced Search", new_search_path, class: "customized-btn", action: 'new' %>
         <% end %>
 
         <!--<input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Search">-->
@@ -68,7 +83,7 @@
          <% if user_signed_in? %>
           <div class = "small-defaul-font">Logged in: <strong><%= current_user.email %></strong></div>
           <%=image_tag('white.jpg', alt: 'white', height: 10, width: 10) %>
-          <button class="button" type="submit"><%= link_to 'Edit profile', edit_user_registration_path, :class => "small-button" %></button>
+          <button class="button" type="submit"><%= link_to 'Profile', edit_user_registration_path, :class => "small-button" %></button>
           <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
           <button class="button" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "small-button"%></button>
          <% else %>
@@ -76,6 +91,7 @@
           <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
           <button class="button" type="submit"><%= link_to "Login", new_user_session_path, :class => "small-button" %></button>
          <% end %>
+         
 
          <!--
          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
@@ -98,27 +114,20 @@
 
 <div class="navigation-bar-container">
   <ul>
+    <li class="one navigation-bar-item"><%= link_to "Aisles", root_path, class: "customized-btn"%></li>
+    &nbsp;
+    &nbsp;
+    <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "customized-btn"%></li>
+    &nbsp;
+    &nbsp;
+    <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path, class: "customized-btn%></li>
     &nbsp;
     &nbsp;
     &nbsp;
     &nbsp;
-    <li class="one navigation-bar-item"><%= link_to "Aisles", root_path, class: "btn"%></li>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "btn"%></li>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
-   <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path, class: "btn"%></li>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
-   <li class="three navigation-bar-item"><%= link_to "Recipes", recipe_index_path, class: "btn"%></li>
+    <li class="three navigation-bar-item"><%= link_to "Recipes", recipe_index_path, class: "customized-btn%></li>
   </ul>
+  
 </div>
 
 </body>

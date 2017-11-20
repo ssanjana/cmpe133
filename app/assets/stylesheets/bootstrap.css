@@ -8299,6 +8299,10 @@ a.text-dark:focus, a.text-dark:hover {
   background-color: white !important;
 }
 
+.healthway:focus, .healthway:hover {
+  text-decoration: none;
+}
+
 
 .slogen {
   font: 500 300% 'Helvetica Neue', Helvetica, Arial;
@@ -8426,6 +8430,42 @@ ul li {
   text-decoration: none;
 }
 
+
+
+.customized-btn {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 0px solid transparent;
+  padding: 0.5rem 0.80rem;
+  font: 500 110% 'Helvetica Neue', Helvetica, Arial;
+  line-height: 1.25;
+  border-radius: 25px;
+  transition: all 0.20s ease-in-out;
+}
+
+.customized-btn:focus, .customized-btn:hover {
+  text-decoration: none;
+}
+
+.customized-btn:focus, .customized-btn.focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.customized-btn.disabled, .customized-btn:disabled {
+  opacity: .65;
+}
+
+.customized-btn:active, .customized-btn.active {
+  background-image: none;
+}
 
 
 
