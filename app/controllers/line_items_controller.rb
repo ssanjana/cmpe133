@@ -33,8 +33,8 @@ class LineItemsController < ApplicationController
 
 
     respond_to do |format|
-      if @line_item.save #@line_item.cart
-        format.html { redirect_to @line_item, notice: 'Item addededededed!' }
+      if @line_item.save
+        format.html { redirect_to @line_item.cart, notice: 'Item added!' }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     respond_to do |format|
       if @line_item
-        format.html { redirect_to @line_item.cart_path, notice: 'Item removed.' }
+        format.html { redirect_to current_cart, notice: 'Item removed.' }
         format.json { head :no_content }
       else
         format.html { render current_cart}

@@ -99,7 +99,7 @@
          -->
 
          <!-- TOOK THE CART PATH OUT FOR DEVELOPMENT OF CART-->
-         <%#= link_to "0", cart_path(current_cart), :class => "shopping-cart"%>
+         <%#= link_to "0", cart_path, :class => "shopping-cart"%>
 
          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 5) %>
 
@@ -120,12 +120,11 @@
     <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "customized-btn"%></li>
     &nbsp;
     &nbsp;
-    <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path, class: "customized-btn%></li>
+   <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path, class: "customized-btn"%></li>
     &nbsp;
     &nbsp;
-    &nbsp;
-    &nbsp;
-    <li class="three navigation-bar-item"><%= link_to "Recipes", recipe_index_path, class: "customized-btn%></li>
+
+   <li class="three navigation-bar-item"><%= link_to "Recipes", recipe_index_path, class: "customized-btn"%></li>
   </ul>
   
 </div>
