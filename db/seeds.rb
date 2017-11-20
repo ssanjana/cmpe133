@@ -33,7 +33,7 @@ Category.create(id: 9,name:'Vegetables',
 Coupon.delete_all
 #Coupon creation
 Coupon.create(code: 'SUMMERSALE', discount_percent: 5,
- expires_at: 1.week.from_now)
+ )
 
 Product.delete_all
 #Product creation!

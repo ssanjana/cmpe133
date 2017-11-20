@@ -82,10 +82,33 @@ td, th {
     
 </table>
 
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <p>
+      <label class="Total">
+        <span>Total: <%= number_to_currency(@cart.subtotal) %><%#= @cart.total_price %>
+</span>
+      </label>
+    </p>
+    <p>
+      <%= label_tag(:couponCode, 'Coupon:') %>
+      <%= text_field_tag(:couponCode) %>
+    </p>
+  </article>
 
-<h3 style="width: 50%; font: 500 200% 'Helvetica Neue', Helvetica, Arial; margin-bottom: 15px; margin-left: 5px; margin-top: 50px; margin-right: 150px;"> Total: <%= number_to_currency(@cart.subtotal) %><%#= @cart.total_price %> </h3>
-
-<a href="/charges/new" class="Proceed-to-Checkout-button">Proceed to Checkout</a>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-billingAddress="true"
+          data-shippingAddress="true"
+          data-locale="auto"></script>
+<% end %>
 </div>
 
 
