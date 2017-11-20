@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20171120035549) do
   create_table "line_items", force: :cascade do |t|
     t.integer "product_id"
     t.integer "cart_id"
-    t.integer "quantity", default: 1
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20171120035549) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.integer "card"
-    t.boolean "guest"
+    t.boolean "guest", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
