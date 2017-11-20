@@ -5,7 +5,6 @@ class Coupon < ActiveRecord::Base
 
   def self.get(code)
     where(code: normalize_code(code)).
-    where('expires_at > ? OR expires_at IS NULL', Time.now).
     take
   end
 
