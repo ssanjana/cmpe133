@@ -42,6 +42,8 @@ class ApplicationController < ActionController::Base
     session[:cart_id] = cart.id
     cart
   end
+
+  helper_method :current_cart
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
     def logging_in

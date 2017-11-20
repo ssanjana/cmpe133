@@ -27,7 +27,9 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
+    #product = Product.find(params[:title])
     @line_item = @cart.add_item(product.id)
+    #@line_item = @cart.add_items_from_recipe(title)
 
 
     respond_to do |format|
@@ -40,6 +42,7 @@ class LineItemsController < ApplicationController
       end
     end
   end
+  helper_method :create
 
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
