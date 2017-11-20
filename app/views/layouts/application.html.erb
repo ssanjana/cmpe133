@@ -83,7 +83,7 @@
          -->
 
          <!-- TOOK THE CART PATH OUT FOR DEVELOPMENT OF CART-->
-         <%#= link_to "0", cart_path, :class => "shopping-cart"%>
+         <%#= link_to "0", cart_path(current_cart), :class => "shopping-cart"%>
 
          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 5) %>
 
@@ -117,7 +117,7 @@
     &nbsp;
     &nbsp;
     &nbsp;
-   <li class="three navigation-bar-item"><%= link_to "Recipies", recipe_index_path, class: "btn"%></li>
+   <li class="three navigation-bar-item"><%= link_to "Recipes", recipe_index_path, class: "btn"%></li>
   </ul>
 </div>
 
