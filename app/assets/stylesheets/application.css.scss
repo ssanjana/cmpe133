@@ -1,0 +1,143 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'global.css.scss';
+@import "reset";
+@import "style";
+
+@mixin box-shadow {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+$dark_gray: #2B2E2E;
+$light_gray: #C0C1C1;
+$red: #FF0000;
+
+
+.main_content {
+	padding: 50px 100px 125px 100px;
+	min-width: 100%;
+    min-height: 100%;
+}
+
+.alert.alert-info {
+	padding: 15px;
+	font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 15px;
+	text-align: center;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	@include box-shadow;
+	background-color: $dark_gray;
+	font-weight: bold;
+	color: $red;
+}
+
+
+.form-inline {
+	margin-top: 15px;
+}
+.form-input {
+	width: 65% !important;
+	float: left;
+}
+.form-button {
+	float: left;
+	width: 30% !important;
+	margin-left: 5%;
+}
+.add-button {
+	margin-top: 25px;
+}
+
+.simple_form .error {
+  color: #DB6161;
+}
+
+.btn-space {
+    margin-right: 10px;
+}
+
+.custom {
+    width: 177.5px !important;
+}
+
+.customcolor{
+	background-color: $dark_gray;
+}
+
+.panel > .panel-heading{
+	background: $dark_gray;
+	color: white;
+	border-bottom: 7px solid $red;
+	font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+.panel > .panel-body{
+	background: white;
+	font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	.style{
+		font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+		color: black;
+	}
+}
+
+.panel > .panel-footer{
+	background: $dark_gray;
+	font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	.style{
+		a {
+				color: white;
+				text-decoration: none;
+				&:hover {
+					color: $red;
+				}
+			}
+	}
+}
+
+.btn-danger:hover{
+	color: white;
+	text-decoration: none;
+	&:hover {
+		color: white;
+	}
+}
+
+.btn-success:hover{
+	color: white;
+	text-decoration: none;
+	&:hover {
+		color: white;
+	}
+}
+
+.center_ingredient_button{
+  padding-top: 30px;
+  padding-right: 17px;
+}
+.center_direction_button{
+  padding-top: 60px;
+  padding-right: 3px;
+}
+
+.welcomemain{
+	position: absolute;
+}
