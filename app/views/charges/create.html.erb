@@ -1,3 +1,8 @@
+<div class="navigation-bar-container">
+  <%=image_tag('white.jpg', alt: 'white', height: 10, width: 70) %>
+</div>
+
+<div class="healthway" style="margin-left: 90px;">
 <p>
   <label class="subtotal">
     <span>Subtotal: <%= number_to_currency(@amount * 0.01) %></span>
@@ -25,4 +30,4 @@
     <span>Total: <%= number_to_currency(@final_amount * 0.01) %></span>
   </label>
 </p>
-<%= link_to 'Return to Home Page', root_path %>
+<%= link_to 'Return to Home Page', root_path, :class => "btn" %>
