@@ -91,11 +91,10 @@
 
 
          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
+         <!--
          <button class="button" type="submit"><%= link_to "Cart", Cart.last, :class => "small-button"%></button>
-         
-
-         <!-- TOOK THE CART PATH OUT FOR DEVELOPMENT OF CART-->
-         <%#= link_to "0", cart_path, :class => "shopping-cart"%>
+          -->
+         <%= link_to "", Cart.last, :class => "shopping-cart"%>
 
          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 5) %>
 
