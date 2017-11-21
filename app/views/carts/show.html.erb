@@ -53,6 +53,17 @@ td, th {
   text-decoration: none;
 }
 
+.searchbar{
+    width: 200px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
 </style>
 
 <div style="margin-left: 120px; margin-top: 30px; ">
@@ -81,6 +92,11 @@ td, th {
     <% end %>
     
 </table>
+<div>
+
+
+<div class="row" style="margin-top: 20px;">
+<div>
 
 <%= form_tag charges_path do %>
   <article>
@@ -89,25 +105,43 @@ td, th {
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <p>
+
+    <p style="font: 500 160% 'Helvetica Neue', Helvetica, Arial;  margin-left: 100px; margin-top: 30px;">
       <label class="Total">
         <span>Total: <%= number_to_currency(@cart.subtotal) %><%#= @cart.total_price %>
 </span>
       </label>
     </p>
-    <p>
-      <%= label_tag(:couponCode, 'Coupon:') %>
-      <%= text_field_tag(:couponCode) %>
-    </p>
-  </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    <div class="row" style="font: 500 160% 'Helvetica Neue', Helvetica, Arial;  margin-left: 100px;">
+      <%= label_tag(:couponCode, 'Coupon:') %> 
+      &nbsp;
+      <%= text_field_tag(:couponCode , params[:couponCode], style: "margin-bottom: 3px;") %>
+    
+    </div>
+  </article>
+</div>
+
+<div style="text-align: right; margin-left: 365px; margin-top: 35px;">
+  <p style="font: 500 120% 'Helvetica Neue', Helvetica, Arial; text-align: right;">
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
           data-amount="500"
           data-billingAddress="true"
           data-shippingAddress="true"
-          data-locale="auto"></script>
+          data-locale="auto">
+      </script>
+
+      
+    </p>
+    Powered by <%=image_tag('stripe.jpg', alt: 'white', height: 25, width: 70) %>
+
+
+</div>
+
+</div>
 <% end %>
 </div>
 
