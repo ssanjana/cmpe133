@@ -126,10 +126,16 @@
 
 </div>
 <% elsif current_user.guest? %>
-You have to be a registered member of Healthway to start saving.
+<div class="col-sm-2 text-center"> 
+  You have to be a registered member of Healthway to start saving.
+</div>
 <%else%>
-You messed up somewhere.
+<div class="col-sm-2 text-center">
+  You messed up somewhere.
+</div>
 <% end %>
 <%else%>
-Log in and start saving.
+<div class="col-sm-2 text-center"> 
+  Log in and start saving.
+</div>
 <% end %>

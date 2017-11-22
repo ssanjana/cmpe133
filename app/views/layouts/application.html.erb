@@ -5,7 +5,7 @@
     <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', "https://www.w3schools.com/w3css/4/w3.css", "https://www.w3schools.com/w3css/4/w3.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -107,7 +107,7 @@
 
 <div class="navigation-bar-container">
   <ul>
-    <li class="one navigation-bar-item"><%= link_to "Aisles", root_path, class: "customized-btn"%></li>
+    <li class="one navigation-bar-item"><%= link_to "Aisles", categories_index_path, class: "customized-btn"%></li>
     &nbsp;
     &nbsp;
     <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "customized-btn"%></li>
