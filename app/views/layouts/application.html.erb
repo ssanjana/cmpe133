@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,13 +5,12 @@
     <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', "https://www.w3schools.com/w3css/4/w3.css", "https://www.w3schools.com/w3css/4/w3.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
 <style type="text/css">
-.searchbar{
+  .searchbar{
     width: 130px;
     border: 2px solid #ccc;
     border-radius: 25px;
@@ -21,7 +18,7 @@
     background-color: white;
     padding: 5px 5px 5px 5px;
     margin-right: 5px;
-}
+  }
 
 </style>
 
@@ -91,15 +88,11 @@
           <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
           <button class="button" type="submit"><%= link_to "Login", new_user_session_path, :class => "small-button" %></button>
          <% end %>
-         
 
          <!--
-         <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
-         <button class="button" type="submit"><%#= link_to "Cart", cart_path, :class => "small-button"%></button>
-         -->
-
-         <!-- TOOK THE CART PATH OUT FOR DEVELOPMENT OF CART-->
-         <%#= link_to "0", cart_path, :class => "shopping-cart"%>
+         <button class="button" type="submit"><%= link_to "Cart", Cart.last, :class => "small-button"%></button>
+          -->
+         <%= link_to "", Cart.last, :class => "shopping-cart"%>
 
          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 5) %>
 
