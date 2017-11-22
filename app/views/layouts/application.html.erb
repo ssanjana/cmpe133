@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>HealthWay</title>
-    <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', "https://www.w3schools.com/w3css/4/w3.css", "https://www.w3schools.com/w3css/4/w3.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
 <style type="text/css">
   .searchbar{
     width: 130px;
@@ -21,6 +11,15 @@
   }
 
 </style>
+<html>
+  <head>
+    <title>HealthWay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', "https://www.w3schools.com/w3css/4/w3.css", "https://www.w3schools.com/w3css/4/w3.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
   <body>
 
@@ -31,100 +30,96 @@
         <%=image_tag('white.jpg', alt: 'white', height: 10, width: 25) %>
         <%= link_to 'HealthWay', root_path, :class => "healthway" %>
       </div>
-      <div class="row slogen">
-        <%=image_tag('white.jpg', alt: 'white', height: 10, width: 27) %>
-        <h5>Eat healthier. Live longer.</h5>
+        <div class="row slogen">
+          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 27) %>
+          <h5>Eat healthier. Live longer.</h5>
+        </div>
       </div>
-      </div>
 
+      <!-- <a class="navbar-brand" href="#">Safeway</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-     <!-- <a class="navbar-brand" href="#">Safeway</a> -->
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
-     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-       <ul class="navbar-nav mr-auto">
-         <li class="nav-item active">
-           <%#= link_to ' About', about_path %>
-         </li>
-         <li class="nav-item active">
-           <%#= link_to 'Shop', groceries_path %>
-         </li>
-         <!--<li class="nav-item">
-           <a class="nav-link disabled" href="#">Disabled</a>
-         </li>
-         <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-           <div class="dropdown-menu" aria-labelledby="dropdown01">
-             <a class="dropdown-item" href="#">Action</a>
-             <a class="dropdown-item" href="#">Another action</a>
-             <a class="dropdown-item" href="#">Something else here</a>
-           </div>
-         </li> -->
-       </ul>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%#= link_to ' About', about_path %>
+          </li>
+          <li class="nav-item active">
+            <%#= link_to 'Shop', groceries_path %>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
 
        <form class="form-inline my-2 my-lg-0">
-        <%= form_tag searches_path, method: :get do %>
+          <%= form_tag searches_path, method: :get do %>
             <%= label_tag(:q, "") %>
             <%= text_field_tag(:search, params[:search], class: "searchbar")%>
             <%= link_to "Search", products_path, class: "customized-btn", method: :get%>
             <%= link_to "Advanced Search", new_search_path, class: "customized-btn", action: 'new' %>
-        <% end %>
+          <% end %>
 
-        <!--<input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Search">-->
-        <%=image_tag('white.jpg', alt: 'white', height: 40, width: 35) %>
+          <!--<input class="form-control mr-sm-2 navigation-bar-item" type="text" placeholder="Search" aria-label="Search">-->
+          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 35) %>
 
-         <% if user_signed_in? %>
-          <div class = "small-defaul-font">Logged in: <strong><%= current_user.email %></strong></div>
-          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 10) %>
-          <button class="button" type="submit"><%= link_to 'Profile', edit_user_registration_path, :class => "small-button" %></button>
-          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
-          <button class="button" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "small-button"%></button>
-         <% else %>
-          <button class="button" type="submit"><%= link_to "Sign up", new_user_registration_path, :class => "small-button" %></button>
-          <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
-          <button class="button" type="submit"><%= link_to "Login", new_user_session_path, :class => "small-button" %></button>
-         <% end %>
+            <% if user_signed_in? %>
+              <div class = "small-defaul-font">Logged in: <strong><%= current_user.email %></strong></div>
+              <%=image_tag('white.jpg', alt: 'white', height: 10, width: 10) %>
+              <button class="button" type="submit"><%= link_to 'Profile', edit_user_registration_path, :class => "small-button" %></button>
+              <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
+              <button class="button" type="submit"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "small-button"%></button>
+            <% else %>
+              <button class="button" type="submit"><%= link_to "Sign up", new_user_registration_path, :class => "small-button" %></button>
+              <%=image_tag('white.jpg', alt: 'white', height: 40, width: 15) %>
+              <button class="button" type="submit"><%= link_to "Login", new_user_session_path, :class => "small-button" %></button>
+            <% end %>
 
-         <!--
-         <button class="button" type="submit"><%= link_to "Cart", Cart.last, :class => "small-button"%></button>
+          <!--
+          <button class="button" type="submit"><%= link_to "Cart", Cart.last, :class => "small-button"%></button>
           -->
-         <%= link_to "", Cart.last, :class => "shopping-cart"%>
+          <%= link_to "", Cart.last, :class => "shopping-cart"%>
 
-         <%=image_tag('white.jpg', alt: 'white', height: 10, width: 5) %>
+          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 5) %>
 
-       </form>
-     </div>
-   </nav>
+        </form>
+      </div>
+    </nav>
 
-<div class="navigation-bar-container">
-  <%=image_tag('white.jpg', alt: 'white', height: 60, width: 70) %>
-</div>
+    <div class="navigation-bar-container">
+      <%=image_tag('white.jpg', alt: 'white', height: 60, width: 70) %>
+    </div>
 
+    <div class="navigation-bar-container">
+      <ul>
+        <li class="one navigation-bar-item"><%= link_to "Aisles", root_path, class: "customized-btn"%></li>
+        &nbsp;
+        &nbsp;
+        <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "customized-btn"%></li>
+        &nbsp;
+        &nbsp;
+        <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path, class: "customized-btn"%></li>
+        &nbsp;
+        &nbsp;
+        <li class="three navigation-bar-item"><%= link_to "Recipes", recipe_index_path, class: "customized-btn"%></li>
+      </ul>
+    </div>
 
-<div class="navigation-bar-container">
-  <ul>
-    <li class="one navigation-bar-item"><%= link_to "Aisles", categories_index_path, class: "customized-btn"%></li>
-    &nbsp;
-    &nbsp;
-    <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "customized-btn"%></li>
-    &nbsp;
-    &nbsp;
-   <li class="three navigation-bar-item"><%= link_to "Savings", savings_index_path, class: "customized-btn"%></li>
-    &nbsp;
-    &nbsp;
+  </body>
 
-   <li class="three navigation-bar-item"><%= link_to "Recipes", recipe_index_path, class: "customized-btn"%></li>
-  </ul>
-  
-</div>
-
-</body>
-
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
    <!-- HEADER -->
 
