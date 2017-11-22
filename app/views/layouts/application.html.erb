@@ -27,9 +27,9 @@
 
       <div class="navigation-bar-container">
         <div class="row">
-        <%=image_tag('white.jpg', alt: 'white', height: 10, width: 25) %>
-        <%= link_to 'HealthWay', root_path, :class => "healthway" %>
-      </div>
+          <%=image_tag('white.jpg', alt: 'white', height: 10, width: 25) %>
+          <%= link_to 'HealthWay', root_path, :class => "healthway" %>
+        </div>
         <div class="row slogen">
           <%=image_tag('white.jpg', alt: 'white', height: 10, width: 27) %>
           <h5>Eat healthier. Live longer.</h5>
@@ -104,7 +104,7 @@
 
     <div class="navigation-bar-container">
       <ul>
-        <li class="one navigation-bar-item"><%= link_to "Aisles", root_path, class: "customized-btn"%></li>
+        <li class="one navigation-bar-item"><%= link_to "Aisles", categories_index_path, class: "customized-btn"%></li>
         &nbsp;
         &nbsp;
         <li class="two navigation-bar-item"><%= link_to "History", history_index_path, class: "customized-btn"%></li>
