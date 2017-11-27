@@ -35,6 +35,7 @@ Coupon.delete_all
 Coupon.create(code: 'SUMMERSALE', discount_percent: 5,
  )
 
+
 Product.delete_all
 #Product creation!
 Product.create(title:'Beef Franks',

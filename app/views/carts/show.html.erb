@@ -82,33 +82,48 @@ td, th {
     
 </table>
 
-<%= form_tag charges_path do %>
+
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <p>
-      <label class="Total">
-        <span>Total: <%= number_to_currency(@cart.subtotal) %><%#= @cart.total_price %>
-</span>
+    <p><!-- Display the total price from the cart items-->
+      <label class="Total ">
+        <span>Items Total: <%= number_to_currency(@cart.subtotal) %>
+        </span>
       </label>
     </p>
-    <p>
-      <%= label_tag(:couponCode, 'Coupon:') %>
-      <%= text_field_tag(:couponCode) %>
+    <p><!-- Display the tax calculated from total price of the cart items-->
+      <label class="tax">
+        <span>Tax 9.25%: <%= number_to_currency((@cart.subtotal) * 0.0925) %></span>
+      </label>
     </p>
+    <p><!-- Display tax plus total amount -->
+      <label class="new total">
+        <span>Total with tax included: <%= number_to_currency(((@cart.subtotal) * 0.0925)+(@cart.subtotal)) %></span>
+      </label>
+    </p>
+    
   </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  <!--set amount  equal to the cartsubtotal and proceed with stripe checkout-->
+  <%= form_tag charges_path(amount: (((@cart.subtotal) * 0.0925)+(@cart.subtotal))) do %>
+    <p>
+      <!--User enters couponcode, code gets passed to ccontroller -->
+      <%= label_tag(:couponCode, 'Coupon:') %>
+      <%= text_field_tag(:couponCode)%>
+    </p>
+    <!-- Chekout box that user needs to fill out-->
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
+          data-description="Items in your cart"
+          data-amount="<%= ((((@cart.subtotal) * 0.0925)+(@cart.subtotal)) * 100) +1 %>"
           data-billingAddress="true"
           data-shippingAddress="true"
-          data-locale="auto"></script>
-<% end %>
+          data-locale="auto">
+    </script>
+  <% end %>
 </div>
 
 
