@@ -38,38 +38,84 @@ Product.create(title:'Beef Franks',
   category_id:1,
   description: %{Just classier hot dogs.},
   image_url: 'meats/beeffranks.jpeg',
-  price: 9.99)
-Product.create(title:'King Salmon Fillet',
+  price: 9.99,
+  recipes:'Hot dogs',
+  recipe_url:'recipes/hotdogrecipe.jpg',
+  recipe_instructions: 'Spread, Grill, Enjoy!',
+  recipe_ingredients: 'Beef Franks, Ketchup, Mustard, French Bread' 
+  )
+
+Product.create(title:'Salmon Fillet',
   category_id:1,
   description: %{A big hunk of salmon meat prepared by our deli!},
   image_url: 'meats/king-salmon-fillet.jpg',
-  price: 12.00)
-Product.create(title:'Lunch Meat',
-  category_id:1,
-  description: %{Ready to put in your sandwiches},
-  image_url: 'meats/lunchmeat.jpg',
-  price: 12.00)
+  price: 12.00,
+  recipes:'Herb Glazed Salmon',
+  recipe_url:'recipes/salmonrecipe.jpg',
+  recipe_instructions: 'Marinate, Grill, Enjoy!',
+  recipe_ingredients: 'Salmon Fillet, Italian Herbs, Lemon, Olive Oil' 
+  )
+
+Product.create(title:'Italian Herbs',
+  category_id:5,
+  description: %{Perfect Italian Pinch},
+  image_url: 'recipes/Italian_herbs.png',
+  price: 7.00)
+
+Product.create(title:'Lemon',
+  category_id:6,
+  description: %{Fresh and sour},
+  image_url: 'recipes/lemon.jpg',
+  price: 0.30)
 
 Product.create(title:'Blue Bottle coffee',
   category_id:2,
   description: %{Coffee is made of three simple ingredients: coffee, water, and time.},
   image_url: 'beverages/blurbottle.jpg',
   price: 3.99)
+
 Product.create(title:'Bai Variety Pack',
   category_id:2,
   description: %{Delicious fruit-inspired beverages available in 4 tropical flavors.},
   image_url: 'beverages/bai.jpg',
   price: 19.98)
+
 Product.create(title:'Mango Nectar',
   category_id:2,
   description: %{The BEST mango juice around. Straight from Costco},
   image_url: 'beverages/mango-nectar.jpg',
   price: 7.99)
+
 Product.create(title:'Naked Juice',
   category_id:2,
   description: %{Get Naked in packs! This juice has wonderful nutrients},
   image_url: 'beverages/nakedjuice.jpg',
-  price: 12.00)
+  price: 12.00,
+  recipes:'Breakfast Smoothie',
+  recipe_url:'recipes/pinksmoothie.jpg',
+  recipe_instructions: 'Blend with ice, Enjoy!',
+  recipe_ingredients: 'Naked Juice, Avocados, Frozen Berries' 
+  )
+
+Product.create(title:'Frozen Berries',
+  category_id:6,
+  description: %{Frozen Strawberries, Cherries, Blackberries},
+  image_url: 'recipes/Frozen_berries.jpg',
+  price: 7.99)
+
+Product.create(title:'Eggs',
+  category_id:7,
+  description: %{6 Organic Eggs},
+  image_url: 'recipes/eggs.jpg',
+  price: 3.99)
+
+Product.create(title:'Avocados',
+  category_id:6,
+  description: %{Fresh, Creamy and Smooth},
+  image_url: 'recipes/avocado.png',
+  price: 5.99)
+
+
 Product.create(title:'Sprite',
   category_id:2,
   description: %{Get this soda that is fueling the economy keeping the sugar industry alive.},
@@ -91,7 +137,7 @@ Product.create(title:'Wonder Bread',
   description: %{The most wonderful bread of the year.},
   image_url: 'bread/wonderbread.png',
   price: 1.99)
-Product.create(title:'Mini French Bread',
+Product.create(title:'French Bread',
   category_id:3,
   description:
     %{This is like a good bread to use to make banh mi so go ahead, try it.
@@ -123,12 +169,13 @@ Product.create(title:'Reeses Puff',
   image_url: 'breakfast/reesespuffs.jpg',
   price: 2.98)
 
-Product.create(title:'Heinz Ketchup',
+Product.create(title:'Ketchup',
   category_id:5,
   description: %{Ketchup to use on all your favorite products!},
   image_url: 'condiments/heinz.jpg',
   price: 2.00)
-Product.create(title:'Heinz Mustard',
+
+Product.create(title:'Mustard',
   category_id:5,
   description: %{Mustard to use on all your food, seriously!},
   image_url: 'condiments/mustard.jpeg',
@@ -138,7 +185,7 @@ Product.create(title:'Sriacha',
   description: %{For those who want some heat in their life.},
   image_url: 'condiments/sriacha.jpg',
   price: 4.00)
-Product.create(title:'California Extra Virgin Olive Oil',
+Product.create(title:'Olive Oil',
   category_id:5,
   description: %{This delicate olive oil has a fruity nose and a smooth and buttery tongue with a very slight peppery finish. Perfect for baking cakes and cookies, for all-purpose mayonnaise and mashed potatoes or with tender salad greens, just to name a few of the many options. Made in the USA.},
   image_url: 'condiments/oliveoil.jpg',
@@ -170,12 +217,12 @@ Product.create(title:'Oranges',
   image_url: 'fruits/oranges.jpeg',
   price: 2.99)
 Product.create(title:'Grapes',
-  category_id:1,
+  category_id:6,
   description: %{The most succulant grapes in the world.},
   image_url: 'fruits/grapes.jpeg',
   price: 3.99)
 Product.create(title:'Pomegranates',
-  category_id:1,
+  category_id:6,
   description: %{The forbbiden fruit.},
   image_url: 'fruits/pomegranates.jpeg',
   price: 3.99)
