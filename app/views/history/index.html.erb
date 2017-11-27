@@ -62,11 +62,17 @@
       </div>
     <%end%>
   <%elsif current_user.guest?%>
-    You have to be a registered member of Healthway to see your shopping history.
+    <div class="col-sm-2 text-center"> 
+      You have to be a registered member of Healthway to see your shopping history.
+    </div>
   <%else%>
-    You done fucked up, son.
+    <div class="col-sm-2 text-center"> 
+      You done fucked up, son.
+    </div>
   <%end%>
 
 <% else %>
-Log in to see your history.
+  <div class="col-sm-2 text-center"> 
+    Log in to see your history.
+  </div>
 <%end%>

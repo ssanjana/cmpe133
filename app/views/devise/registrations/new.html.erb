@@ -1,44 +1,42 @@
-<div class="navigation-bar-container">
-  <%=image_tag('white.jpg', alt: 'white', height:100, width: 70) %>
-</div>
 
+<div style="margin-left: 50px; margin-top: 30px;">
 <div class="defaul-font"><h2>Sign up</h2></div><br />
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :guest, value: false %>
 
-  <div class="Username defaul-font">
+  <div class="Username" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
     <%= f.label :username %>
     <%= f.text_field :username, autofocus: true %>
   </div><br />
 
-  <div class="field defaul-font">
+  <div class="field" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div><br />
 
-  <div class="field defaul-font">
-    <%= f.label :password %></div>
+  <div class="field" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
+    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
     <%= f.password_field :password, autocomplete: "off" %>
   </div><br />
 
-  <div class="field">
+  <div class="field" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div><br />
 
-  <div class="Credit Card defaul-font">
+  <div class="Credit Card" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
     <%= f.label :"Credit Card" %>
     <%= f.number_field :card, autofocus: true, :minimum_length => 16 %>
   </div><br />
 
-  <div class="Confirmation defaul-font">
-    <%= f.label :"Save Your Account"%>
+  <div class="Confirmation row" style="margin-left: 2px; font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
     <%= f.check_box(:guest, {checked: false})%>
+    <%= f.label :"Save Your Account"%>
   </div><br />
 
   <div class="actions">
@@ -48,4 +46,5 @@
 
 <% end %>
 
+</div>
 <%= render "devise/shared/links" %>

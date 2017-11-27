@@ -48,9 +48,11 @@ Rails.application.routes.draw do
 
   get 'searches/show'
 
+  get 'welcome/index'
+
   #match 'devise/cart/index' => 'cart#index', :as => :cart, via: [:get]
 
-  root 'categories#index'
+  root 'welcome#index'
 
   resources :products
   resources :categories
@@ -58,6 +60,7 @@ Rails.application.routes.draw do
   resources :savings
   resources :history
   resources :recipe
+  resources :welcome
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

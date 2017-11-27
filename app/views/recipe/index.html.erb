@@ -1,22 +1,40 @@
+<style type="text/css">
+  .recipe-button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #fff !important;
+  font: 500 120% 'Helvetica Neue', Helvetica, Arial;
+  background-color: #2dcf4e;
+  padding: 5px 9px 5px 9px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  text-decoration: none;
+  border: none !important;
+  outline: none !important;
+}
+</style>
+
 
 <div class="navigation-bar-container">
-  <%=image_tag('white.jpg', alt: 'white', height: 70, width: 70) %>
+</div>
+<div class="healthway" style="margin-left: 70px;">
 </div>
 
-<div class="healthway" style="margin-left: 90px;">
-<h2>Recipe</h2>
-</div>
+<style type="text/css">
+.image-style{
+  border-radius: 10px;
+}
+</style>
 <div id="books.index">
-      <div class="row">
-      <div class="card-info-container">
-      <%=image_tag('white.jpg', alt: 'white', height: 37, width: 42) %>
-      </div>
+      <div class="row" style="margin-left: 50px;">
+      
      <% for product in @products %>
      <% if (product.recipes.present?) then %>
         <div class="card-container">
         <div class="shadowed-card">
         <% if (product.recipe_url.present?) then %>
-          <%= link_to image_tag(product.recipe_url, alt: product.recipes, height: 200, width: 300), product %>
+           <%= image_tag(product.recipe_url, alt: product.recipes, height: 230, width: 345, class:"image-style")%>
         <% end %>
           <div class="column profuct-into-font product-info" >
        		<p><b><%= product.recipes %></b></p>
@@ -26,10 +44,17 @@
       		<p><%= product.recipe_instructions %></p>
           </div>
 
-          <!-- <%= link_to 'Select', product_path(product), class:'button' %>   -->
+          
           <div class="product-info" >
-            <%= button_to 'Shop Recipe', line_items_path(product_id: product), {:class => "add-to-cart-button" } %> 
-          </div>
+          <% for item in @products %>
+            <% product.recipe_ingredients.split(', ').each do|c| %>
+             <% if (item.title == c) then %>
+             <%= button_to 'Get ' + c, line_items_path(product_id: item), {:class => "recipe-button" } %> 
+                
+             <% end %>
+             <% end %>
+         <% end %>
+         </div>
         </div>
         </div>
        <% end %>
