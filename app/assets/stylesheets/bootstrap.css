@@ -8452,6 +8452,7 @@ ul li {
 
 .customized-btn:focus, .customized-btn:hover {
   text-decoration: none;
+  background: #5ada55;
 }
 
 .customized-btn:focus, .customized-btn.focus {
