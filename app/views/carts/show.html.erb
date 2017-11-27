@@ -107,18 +107,18 @@ td, th {
     <% end %>
 
     <p><!-- Display the total price from the cart items-->
-      <label class="Total ">
+      <label class="Total" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
         <span>Items Total: <%= number_to_currency(@cart.subtotal) %>
         </span>
       </label>
     </p>
     <p><!-- Display the tax calculated from total price of the cart items-->
-      <label class="tax">
+      <label class="tax" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
         <span>Tax 9.25%: <%= number_to_currency((@cart.subtotal) * 0.0925) %></span>
       </label>
     </p>
     <p><!-- Display tax plus total amount -->
-      <label class="new total">
+      <label class="new total" style="font: 500 150% 'Helvetica Neue', Helvetica, Arial;">
         <span>Total with tax included: <%= number_to_currency(((@cart.subtotal) * 0.0925)+(@cart.subtotal)) %></span>
       </label>
     </p>
@@ -126,7 +126,7 @@ td, th {
   </article>
   <!--set amount  equal to the cartsubtotal and proceed with stripe checkout-->
   <%= form_tag charges_path(amount: (((@cart.subtotal) * 0.0925)+(@cart.subtotal))) do %>
-    <p>
+    <p style="font: 500 180% 'Helvetica Neue', Helvetica, Arial;">
       <!--User enters couponcode, code gets passed to ccontroller -->
       <%= label_tag(:couponCode, 'Coupon:') %>
       <%= text_field_tag(:couponCode)%>
@@ -135,7 +135,7 @@ td, th {
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Items in your cart"
-          data-amount="<%= ((((@cart.subtotal) * 0.0925)+(@cart.subtotal)) * 100) +1 %>"
+          data-amount=""
           data-billingAddress="true"
           data-shippingAddress="true"
           data-locale="auto">
