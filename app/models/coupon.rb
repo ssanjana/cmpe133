@@ -7,7 +7,9 @@ class Coupon < ActiveRecord::Base
     where(code: normalize_code(code)).
     take
   end
-
+  def total
+    return Cart.first.subtotal
+  end
   def apply_discount(amount)
     discount = amount * (self.discount_percent * 0.01)
     (amount - discount.to_i)

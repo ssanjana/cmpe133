@@ -98,7 +98,7 @@ td, th {
 <div class="row" style="margin-top: 20px;">
 <div>
 
-<%= form_tag charges_path do %>
+
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -106,33 +106,42 @@ td, th {
       </div>
     <% end %>
 
-    <p style="font: 500 160% 'Helvetica Neue', Helvetica, Arial;  margin-left: 100px; margin-top: 30px;">
-      <label class="Total">
-        <span>Total: <%= number_to_currency(@cart.subtotal) %><%#= @cart.total_price %>
+    <p><!-- Display the total price from the cart items-->
+      <label class="Total ">
+        <span>Items Total: <%= number_to_currency(@cart.subtotal) %>
         </span>
       </label>
     </p>
-
-    <div class="row" style="font: 500 160% 'Helvetica Neue', Helvetica, Arial;  margin-left: 100px;">
-      <%= label_tag(:couponCode, 'Coupon:') %> 
-      &nbsp;
-      <%= text_field_tag(:couponCode , params[:couponCode], style: "margin-bottom: 3px;") %>
+    <p><!-- Display the tax calculated from total price of the cart items-->
+      <label class="tax">
+        <span>Tax 9.25%: <%= number_to_currency((@cart.subtotal) * 0.0925) %></span>
+      </label>
+    </p>
+    <p><!-- Display tax plus total amount -->
+      <label class="new total">
+        <span>Total with tax included: <%= number_to_currency(((@cart.subtotal) * 0.0925)+(@cart.subtotal)) %></span>
+      </label>
+    </p>
     
-    </div>
-    
+  </article>
+  <!--set amount  equal to the cartsubtotal and proceed with stripe checkout-->
+  <%= form_tag charges_path(amount: (((@cart.subtotal) * 0.0925)+(@cart.subtotal))) do %>
+    <p>
+      <!--User enters couponcode, code gets passed to ccontroller -->
+      <%= label_tag(:couponCode, 'Coupon:') %>
+      <%= text_field_tag(:couponCode)%>
+    </p>
+    <!-- Chekout box that user needs to fill out-->
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%(@cart.subtotal)%>"
+          data-description="Items in your cart"
+          data-amount="<%= ((((@cart.subtotal) * 0.0925)+(@cart.subtotal)) * 100) +1 %>"
           data-billingAddress="true"
           data-shippingAddress="true"
           data-locale="auto">
-      </script>
-  </article>
-</div>
+    </script>
+  <% end %>
 
-</div>
-<% end %>
 </div>
 
 

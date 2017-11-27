@@ -1,3 +1,4 @@
+
 <div class="navigation-bar-container">
   <%=image_tag('white.jpg', alt: 'white', height: 10, width: 70) %>
 </div>
@@ -8,6 +9,7 @@
     <span>Subtotal: <%= number_to_currency(@amount * 0.01) %></span>
   </label>
 </p>
+
 <% if @coupon.present? %>
   <p>
     <label class="coupon">

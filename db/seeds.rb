@@ -31,6 +31,7 @@ Category.create(id: 9,name:'Vegetables',
   image_url: 'vegetables/vegetables.JPG')
 
 
+
 Product.delete_all
 #Product creation!
 Product.create(title:'Beef Franks',
